@@ -4,4 +4,5 @@ from django.shortcuts import render
 
 
 def select_store(request):
-   return render(request, 'select_store/select-store.html')
+    print("working..................")
+    return render(request, 'select_store/select-store.html')

@@ -3,21 +3,25 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'select_store/css/select_store.css' %}">
 {% endblock %}
-{% block extrajs %}
+
+{% block extra_js %}
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Y1Jc7Syxl2pf04Y9wIy-HbV26wVkpzo&libraries=places"></script>
 <script type="text/javascript" src="{% static 'select_store/js/select_store.js' %}"></script>
 {% endblock %}
+
 {% block content %}
-
-
-
 <!-- Autocomplete location search input --> 
+<form method="POST" action="{% url 'select_store' %}">
+{% csrf_token %}
 <div class="form-group">
     <label>Location:</label>
     <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
+    <button type="submit">Go</button>
     <input type="hidden" id="loc_lat" />
     <input type="hidden" id="loc_long" />
 </div>
+
+</form>
 
 <!-- Display latitude and longitude -->
 <div class="latlong-view">
