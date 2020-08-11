@@ -1,5 +1,24 @@
 {% extends "base.html" %}
-
+{% load static %}
+{% block extrajs %}
+<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Y1Jc7Syxl2pf04Y9wIy-HbV26wVkpzo&libraries=places"></script>
+<script type="text/javascript" src="{% static 'select_store/js/select_store.js' %}"></script>
+{% endblock %}
 {% block content %}
-<div>test</div>
+
+
+<!-- Autocomplete location search input --> 
+<div class="form-group">
+    <label>Location:</label>
+    <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
+    <input type="hidden" id="loc_lat" />
+    <input type="hidden" id="loc_long" />
+</div>
+
+<!-- Display latitude and longitude -->
+<div class="latlong-view">
+    <p><b>Latitude:</b> <span id="latitude_view"></span></p>
+    <p><b>Longitude:</b> <span id="longitude_view"></span></p>
+</div>
+
 {% endblock %}
