@@ -4,5 +4,10 @@ from django.shortcuts import render
 
 
 def select_store(request):
-    print("working..................")
+    if request.POST:
+        print("working..................")
+        print("request data", request.POST)
+    else:
+        print('not form request')
+            
     return render(request, 'select_store/select-store.html')

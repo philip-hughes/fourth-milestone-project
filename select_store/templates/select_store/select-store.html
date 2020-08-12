@@ -13,13 +13,12 @@
 <!-- Autocomplete location search input --> 
 <form method="POST" action="{% url 'select_store' %}">
 {% csrf_token %}
-<div class="form-group">
+    <input type="text" name="test" value="test value">
     <label>Location:</label>
     <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
     <button type="submit">Go</button>
-    <input type="hidden" id="loc_lat" />
-    <input type="hidden" id="loc_long" />
-</div>
+    <input name="lat" type="hidden" id="loc_lat" value=""/>
+    <input name="lat" type="hidden" id="loc_long" value="" />
 
 </form>
 
