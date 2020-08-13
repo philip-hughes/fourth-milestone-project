@@ -18,14 +18,14 @@
     <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
     <button type="submit">Go</button>
     <input name="lat" type="hidden" id="loc_lat" value=""/>
-    <input name="lat" type="hidden" id="loc_long" value="" />
+    <input name="long" type="hidden" id="loc_long" value=""/>
 
 </form>
-
-<!-- Display latitude and longitude -->
-<div class="latlong-view">
-    <p><b>Latitude:</b> <span id="latitude_view"></span></p>
-    <p><b>Longitude:</b> <span id="longitude_view"></span></p>
-</div>
-
+{% if nearby_stores %}
+{% for store in nearby_stores %}
+    <div>
+        <span>{{store.name}}</span>    
+    </div>
+{% endfor %}    
+{% endif %}
 {% endblock %}
