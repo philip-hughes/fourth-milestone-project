@@ -22,7 +22,16 @@
 
 </form>
 {% if nearby_stores %}
+<h3>Nearby stores</h3>
 {% for store in nearby_stores %}
+    <div>
+        <span>{{store.name}}</span>    
+    </div>
+{% endfor %}    
+{% endif %}
+{% if distant_stores %}
+<h3>Other stores</h3>
+{% for store in distant_stores %}
     <div>
         <span>{{store.name}}</span>    
     </div>
