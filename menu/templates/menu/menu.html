@@ -1,5 +1,17 @@
 {% extends 'base.html' %}
 
 {% block content %}
+<h1>Hello</h1>
+{% for pizza in pizzas %}
+    <div>
+        <span>{{ pizza.0 }}</span>
+        <ul>
+         {% for topping in pizza.1 %}
+            <li>{{ topping.1 }} {{ topping.0 }}</li> 
+         {% endfor %}
+         </ul>
+        
 
+    </div>
+{% endfor %}
 {% endblock %}
