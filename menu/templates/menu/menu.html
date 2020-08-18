@@ -6,7 +6,9 @@
 
 {% block content %}
 <h1>Hello</h1>
+<a href="{% url 'add_to_cart' 'asdfasdf' %}">Test</a>
 {% for pizza in pizzas %}
+<form class="form" action="{% url 'add_to_cart' pizza.0 %}" method="POST">
     <div class="menu-item">
         <span>{{ pizza.0 }}</span>
         <ul>
@@ -15,5 +17,8 @@
          {% endfor %}
          </ul>
     </div>
+ <input type="button" value="Add">   
+ </form>   
 {% endfor %}
 {% endblock %}
+
