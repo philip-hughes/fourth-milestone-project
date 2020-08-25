@@ -2,8 +2,8 @@
 
 def cart_contents(request):
 
-    cart = request.session.get('cart', {})
-    if cart != {}:
+    cart = request.session.get('cart', [])
+    if cart != []:
         product_name = cart['product_name']
         print('Product name:', product_name)
         context = {
