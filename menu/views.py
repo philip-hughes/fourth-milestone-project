@@ -6,11 +6,12 @@ def menu(request):
     for pizza in Pizza.objects.all():
         pizza_item = [pizza]
         pizza_toppings = []
-        print('Pizza: ', pizza.name)
+        print('Pizza: ', pizza.sku)
         for top_amt in pizza.topping_amounts.all():
             pizza_toppings.append((top_amt.topping.name, top_amt.get_amount_display()))
         pizza_item.append(pizza_toppings)    
         pizza_list.append(pizza_item)
+    print('Pizza list: ', pizza_list)    
     context = {
         'pizzas': pizza_list
     }       

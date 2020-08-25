@@ -2,5 +2,7 @@
 
 {% block content %}
 <h1>Cart screen</h1>
-<span>{{product_name}}</span>
+{% for item in cart_items %}
+<span>{{item.name}}</span>
+{% endfor %}
 {% endblock %}
