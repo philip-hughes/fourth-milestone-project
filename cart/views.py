@@ -1,5 +1,5 @@
 from django.shortcuts import (render, redirect, reverse, HttpResponse)
-
+import json 
 
 def view_cart(request):
 
@@ -7,12 +7,13 @@ def view_cart(request):
 
 
 def add_to_cart(request, product_id):
-    print('Cart before add: ', request.session.get('cart', []))
     print('Adding to cart...')
-    size = request.POST.get('size')
+    size_price = json.loads(request.POST.get('size_price'))
+    size = size_price['size']
+    price = size_price['price']
     cart = request.session.get('cart', [])
     quantity = request.POST.get('quantity')
-    cart.append({'product_id': product_id, 'size': size})
+    cart.append({'product_id': product_id, 'size': size, 'price': price})
     print('Added to cart: ', cart)
     request.session['cart'] = cart
     return redirect('menu')

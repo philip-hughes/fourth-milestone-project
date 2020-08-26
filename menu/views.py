@@ -11,7 +11,6 @@ def menu(request):
             pizza_toppings.append((top_amt.topping.name, top_amt.get_amount_display()))
         pizza_item.append(pizza_toppings)    
         pizza_list.append(pizza_item)
-    print('Pizza list: ', pizza_list)    
     context = {
         'pizzas': pizza_list
     }       
