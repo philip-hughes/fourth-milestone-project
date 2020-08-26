@@ -6,6 +6,9 @@ class Pizza(models.Model):
     sku = models.CharField(max_length=254, null=False, blank=False)
     name = models.CharField(max_length=30, null=False, blank=False)   
     toppings = models.ManyToManyField('Topping', through='ToppingAmount', related_name='pizzas')
+    small_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    medium_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    large_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
         return self.name
