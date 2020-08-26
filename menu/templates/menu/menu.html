@@ -19,9 +19,9 @@
          </ul>
     </div>
     <select name="size">
-        <option value="small">Small {{pizza.0.small_price}}</option>
-        <option value="medium">Medium {{pizza.0.medium_price}}</option>
-        <option value="large">Large {{pizza.0.large_price}}</option>
+        <option value="{'size':small, 'price':{{pizza.0.small_price}}">Small {{pizza.0.small_price}}</option>
+        <option value="{'size':medium, 'price':{{pizza.0.medium_price}}">Medium {{pizza.0.medium_price}}</option>
+        <option value="{'size':large, 'price':{{pizza.0.large_price}}">Large {{pizza.0.large_price}}</option>
     </select>
         <select name="quantity">
         <option value="1">1</option>
