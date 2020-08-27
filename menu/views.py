@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Pizza, Topping, ToppingAmount
 
 def menu(request):
@@ -15,3 +15,7 @@ def menu(request):
         'pizzas': pizza_list
     }       
     return render(request, 'menu/menu.html', context)
+
+def flush_session(request):
+    request.session.flush()
+    return redirect('menu')
