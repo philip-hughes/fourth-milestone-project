@@ -6,7 +6,11 @@
 
 {% block content %}
 <h1>Checkout screen</h1>
+<div>Total: {{total}}</div>
 <div id="card-element"></div>
+<form id='payment-form'>
+    <input type='submit' value='Submit payment'>
+</form>
 {% endblock %}
 
 {% block postloadjs %}
