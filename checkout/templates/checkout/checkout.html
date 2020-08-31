@@ -10,10 +10,12 @@
 <div id="card-element"></div>
 <form id='payment-form' action="{% url 'checkout' %}" method="POST">
     {% csrf_token %}
+    {{ order_form.full_name }}
+    {{ order_form.email }}
     {{ order_form.phone_number }}
     {{ order_form.street_address1 }}
     {{ order_form.street_address2  }}
-    {{ order_form.town_or_city }}
+    {{ order_form.county }}
     {{ order_form.postcode }}
     <input type='submit' value='Submit payment'>
 </form>
