@@ -9,6 +9,11 @@
 <div>Total: {{total}}</div>
 <div id="card-element"></div>
 <form id='payment-form'>
+    {{ order_form.phone_number }}
+    {{ order_form.street_address1 }}
+    {{ order_form.street_address2  }}
+    {{ order_form.town_or_city }}
+    {{ order_form.postcode }}
     <input type='submit' value='Submit payment'>
 </form>
 {% endblock %}
