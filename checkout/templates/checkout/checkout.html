@@ -9,6 +9,7 @@
 <div>Total: {{total}}</div>
 <div id="card-element"></div>
 <form id='payment-form' action="{% url 'checkout' %}" method="POST">
+    {% csrf_token %}
     {{ order_form.phone_number }}
     {{ order_form.street_address1 }}
     {{ order_form.street_address2  }}
