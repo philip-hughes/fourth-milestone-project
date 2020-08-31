@@ -8,7 +8,7 @@
 <h1>Checkout screen</h1>
 <div>Total: {{total}}</div>
 <div id="card-element"></div>
-<form id='payment-form'>
+<form id='payment-form' action="{% url 'checkout' %}" method="POST">
     {{ order_form.phone_number }}
     {{ order_form.street_address1 }}
     {{ order_form.street_address2  }}

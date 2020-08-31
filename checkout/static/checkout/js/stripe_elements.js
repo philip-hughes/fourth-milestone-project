@@ -25,7 +25,7 @@ var form = document.getElementById('payment-form');
 /*Handle form submit*/
 form.addEventListener('submit', function(ev) {
   ev.preventDefault();
-  card.update('disabled', true)
+  card.update({'disabled': true});
   $('#submit-button').attr('disabled', true)
   stripe.confirmCardPayment(clientSecret, {
     payment_method: {
@@ -34,8 +34,8 @@ form.addEventListener('submit', function(ev) {
   }).then(function(result) {
     if (result.error) {
       // Show error to your customer (e.g., insufficient funds)
-      card.update('disabled', true)
-      $('#submit-button').attr('disabled', true)
+      card.update({'disabled': false});
+      $('#submit-button').attr('disabled', false)
       console.log(result.error.message);
     } else {
       // The payment has been processed!
