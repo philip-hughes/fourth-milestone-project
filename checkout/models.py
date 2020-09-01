@@ -10,7 +10,7 @@ from select_store.models import Store
 class Order(models.Model):
     order_number = models.CharField(max_length=32, null=False, editable=False)
     order_status = models.CharField(max_length=20, null=True, blank=True)
-    store = models.ForeignKey(Store, null=False, blank=False, on_delete=models.CASCADE)
+    store = models.ForeignKey(Store, null=True, blank=True, on_delete=models.CASCADE)
     delivery = models.BooleanField(default=False)
     collection = models.BooleanField(default=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
