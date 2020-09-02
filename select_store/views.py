@@ -6,6 +6,13 @@ gmaps = googlemaps.Client(key='AIzaSyA7Y1Jc7Syxl2pf04Y9wIy-HbV26wVkpzo')
 
 
 def select_store(request):
+    print('link working: ')
+    if request.GET:
+        print('store name working: ', request.GET['storename'])
+        storename = request.GET['storename']
+        store = request.session['storeame'] = storename
+        print('selected store: ', store)
+
     if request.POST:
         print("working..................")
         latitude = request.POST['lat']
@@ -31,5 +38,7 @@ def select_store(request):
         return render(request, 'select_store/select-store.html', context)
     else:
         print('not form request')
+
+
 
     return render(request, 'select_store/select-store.html')

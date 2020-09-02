@@ -27,6 +27,9 @@
     <div>
         <span>{{store.name}}</span>    
     </div>
+    <a class="text-muted" href="{% url 'select_store' %}?storename={{store.name}}">
+    Select</a>
+                                               
 {% endfor %}    
 {% endif %}
 {% if distant_stores %}

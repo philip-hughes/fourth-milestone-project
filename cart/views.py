@@ -7,7 +7,6 @@ def view_cart(request):
 
 
 def add_to_cart(request, product_id):
-    
     print('Adding to cart...')
     size_price = json.loads(request.POST.get('size_price'))
     size = size_price['size']
