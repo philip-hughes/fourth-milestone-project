@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Store
 import googlemaps
 
@@ -12,6 +12,7 @@ def select_store(request):
         store_id = request.GET['store']
         store = request.session['store'] = store_id
         print('selected store: ', store)
+        return redirect('menu')
 
     if request.POST:
         print("working..................")
