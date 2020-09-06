@@ -27,7 +27,7 @@
     <div>
         <span>{{store.name}}</span>    
     </div>
-    <a class="text-muted" href="{% url 'select_store' %}?storename={{store.name}}">
+    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}">
     Select</a>
                                                
 {% endfor %}    

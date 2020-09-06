@@ -2,6 +2,7 @@ from django.db import models
 
 
 class Store(models.Model):
+    id = models.CharField(primary_key=True,max_length=20, null=False, blank=False)
     name = models.CharField(max_length=20, null=False, blank=False)
     street_address1 = models.CharField(max_length=80, null=False, blank=False)
     street_address2 = models.CharField(max_length=80, null=False, blank=False)

@@ -8,9 +8,9 @@ gmaps = googlemaps.Client(key='AIzaSyA7Y1Jc7Syxl2pf04Y9wIy-HbV26wVkpzo')
 def select_store(request):
     print('link working: ')
     if request.GET:
-        print('store name working: ', request.GET['storename'])
-        storename = request.GET['storename']
-        store = request.session['storeame'] = storename
+        print('store name working: ', request.GET['store'])
+        store_id = request.GET['store']
+        store = request.session['store'] = store_id
         print('selected store: ', store)
 
     if request.POST:
