@@ -1,8 +1,9 @@
-from django.shortcuts import (render, redirect, reverse)
+from django.shortcuts import (render, redirect, reverse, get_object_or_404)
 from cart.contexts import cart_contents
 from django.conf import settings
 from .forms import OrderForm
 import stripe
+from select_store.models import Store
 
 
 def checkout(request):
@@ -24,6 +25,8 @@ def checkout(request):
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
+            store_id = request.session['store']
+            order.store = get_object_or_404(Store, pk=store_id)
             order.save()
             return redirect(reverse('checkout_success'))
 
