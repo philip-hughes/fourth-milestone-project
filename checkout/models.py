@@ -8,8 +8,15 @@ from select_store.models import Store
 
 
 class Order(models.Model):
+
+    STATUS_CHOICES = (
+        ('NEW', 'New'),
+        ('IN_PROGRESS', 'In progress'),
+        ('DONE', 'Done'),
+    )
+
     order_number = models.CharField(max_length=32, null=False, editable=False)
-    order_status = models.CharField(max_length=20, null=True, blank=True)
+    order_status = models.CharField(choices=STATUS_CHOICES, default='NEW', max_length=20, null=True, blank=True)
     store = models.ForeignKey(Store, null=True, blank=True, on_delete=models.CASCADE)
     delivery = models.BooleanField(default=False)
     collection = models.BooleanField(default=False)
