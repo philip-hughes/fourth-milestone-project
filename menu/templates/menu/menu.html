@@ -5,7 +5,7 @@
 {% endblock %}
 
 {% block content %}
-<h1>Hello</h1>
+<h1>Pizzas</h1>
 <a href="{% url 'view_cart' %}">View cart</a>
 {% for pizza in pizzas %}
 <form class="form" action="{% url 'add_to_cart' pizza.0.sku %}" method="POST">
@@ -23,13 +23,64 @@
         <option value='{ "size": "medium", "price":"{{pizza.0.medium_price}}" }'>Medium {{pizza.0.medium_price}}</option>
         <option value='{ "size": "large", "price":"{{pizza.0.large_price}}" }'>Large {{pizza.0.large_price}}</option>
     </select>
+ <input type="submit" value="Add">   
+ </form>   
+{% endfor %}
+<h1>Sides</h1>
+{% for side in sides %}
+<form class="form" action="{% url 'add_to_cart' side.sku %}" method="POST">
+{% csrf_token %}
+    <div class="menu-item">
+        <span>{{ side.name }}</span>
+    </div>
+    <select name="size_price">
+        <option value='{ "size": "medium", "price":"{{side.regular_price}}" }'>Regular {{side.regular_price}}</option>
+        <option value='{ "size": "large", "price":"{{side.large_price}}" }'>Large {{side.large_price}}</option>
+    </select>
         <select name="quantity">
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
     </select>
  <input type="submit" value="Add">   
- </form>   
+ </form>
+{% endfor %}
+<h1>Desserts</h1>
+{% for dessert in desserts %}
+<form class="form" action="{% url 'add_to_cart' dessert.sku %}" method="POST">
+{% csrf_token %}
+    <div class="menu-item">
+        <span>{{ dessert.name }}</span>
+    </div>
+    <select name="size_price">
+        <option value='{ "size": "medium", "price":"{{dessert.regular_price}}" }'>Regular {{dessert.regular_price}}</option>
+        <option value='{ "size": "large", "price":"{{dessert.large_price}}" }'>Large {{dessert.large_price}}</option>
+    </select>
+        <select name="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+ <input type="submit" value="Add">   
+ </form>
+{% endfor %}
+<h1>Drinks</h1>
+{% for drink in drinks %}
+<form class="form" action="{% url 'add_to_cart' drink.sku %}" method="POST">
+{% csrf_token %}
+    <div class="menu-item">
+        <span>{{ drink.name }}</span>
+    </div>
+    <select name="size_price">
+        <option value='{ "size": "medium", "price":"{{dessert.regular_price}}" }'>Regular {{drink.regular_price}}</option>
+    </select>
+        <select name="quantity">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+    </select>
+ <input type="submit" value="Add">   
+ </form>
 {% endfor %}
 <a href="{% url 'flush_session' %}">Flush session</a>
 {% endblock %}

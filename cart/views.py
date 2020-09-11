@@ -14,6 +14,8 @@ def add_to_cart(request, product_id):
     cart = request.session.get('cart', [])
     quantity = request.POST.get('quantity')
     cart.append({'product_id': product_id, 'size': size, 'price': price})
+    
+
     print('Added to cart: ', cart)
     request.session['cart'] = cart
     return redirect('menu')

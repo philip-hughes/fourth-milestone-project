@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Pizza, Topping, ToppingAmount
+from .models import Product, Topping, ToppingAmount
 
 
 # Register your models here.
-admin.site.register(Pizza)
+admin.site.register(Product)
 admin.site.register(Topping)
 admin.site.register(ToppingAmount)

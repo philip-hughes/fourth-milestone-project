@@ -3,7 +3,7 @@ import uuid
 from django.db import models
 from django.conf import settings
 
-from menu.models import Pizza
+from menu.models import Product
 from select_store.models import Store
 
 
@@ -56,7 +56,7 @@ class OrderLineItem(models.Model):
     order = models.ForeignKey(Order, null=False, blank=False,
                               on_delete=models.CASCADE,
                               related_name='lineitems')
-    product = models.ForeignKey(Pizza, null=False, blank=False,
+    product = models.ForeignKey(Product, null=False, blank=False,
                                 on_delete=models.CASCADE)
     quantity = models.IntegerField(null=False, blank=False, default=0)
 

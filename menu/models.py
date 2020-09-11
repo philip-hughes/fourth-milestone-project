@@ -1,13 +1,21 @@
 from django.db import models
 
 
-class Pizza(models.Model):
+class Product(models.Model):
+    PRODUCT_TYPE_CHOICES = (
+        ('PIZZA', 'Pizza'),
+        ('SIDE', 'Side'),
+        ('DESSERT', 'Dessert'),
+        ('DRINK', 'Drink')
+    )
 
     sku = models.CharField(max_length=254, null=False, blank=False)
-    name = models.CharField(max_length=30, null=False, blank=False)   
+    name = models.CharField(max_length=30, null=False, blank=False)
+    product_type = models.CharField(choices=PRODUCT_TYPE_CHOICES, max_length=20, default='PIZZA')
+    position =  models.CharField(max_length=10, null=False, blank=False, default=1)
     toppings = models.ManyToManyField('Topping', through='ToppingAmount', related_name='pizzas')
     small_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
-    medium_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
+    regular_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
     large_price = models.DecimalField(max_digits=6, decimal_places=2, null=True, blank=True)
 
     def __str__(self):
@@ -33,7 +41,7 @@ class ToppingAmount(models.Model):
         (TRIPLE, 'Triple'),
     )
 
-    pizza = models.ForeignKey('Pizza', related_name='topping_amounts', on_delete=models.SET_NULL, null=True)
+    pizza = models.ForeignKey('Product', related_name='topping_amounts', on_delete=models.SET_NULL, null=True)
     topping = models.ForeignKey('Topping', related_name='topping_amounts', on_delete=models.SET_NULL, null=True, blank=True)
-    amount = models.IntegerField(choices=AMOUNT_CHOICES, default=REGULAR)    
+    amount = models.IntegerField(choices=AMOUNT_CHOICES, default=REGULAR)
  

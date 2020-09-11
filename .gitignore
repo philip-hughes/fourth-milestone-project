@@ -1,3 +1,4 @@
 *.sqllite3
 *.pyc
 __pycache__
+test.py
