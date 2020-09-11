@@ -8,6 +8,8 @@
 <h1>Pizzas</h1>
 <a href="{% url 'view_cart' %}">View cart</a>
 {% for pizza in pizzas %}
+<div>
+<img src="{{pizza.0.image_url}}">
 <form class="form" action="{% url 'add_to_cart' pizza.0.sku %}" method="POST">
 {% csrf_token %}
     <div class="menu-item">
@@ -24,7 +26,8 @@
         <option value='{ "size": "large", "price":"{{pizza.0.large_price}}" }'>Large {{pizza.0.large_price}}</option>
     </select>
  <input type="submit" value="Add">   
- </form>   
+ </form>
+ </div>   
 {% endfor %}
 <h1>Sides</h1>
 {% for side in sides %}
