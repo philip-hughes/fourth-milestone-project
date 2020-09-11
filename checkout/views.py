@@ -4,8 +4,10 @@ from django.conf import settings
 from .forms import OrderForm
 import stripe
 from select_store.models import Store
+from pizza_dojo.utils.decorators import select_store_decorator
 
 
+@select_store_decorator
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY

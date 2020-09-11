@@ -1,6 +1,9 @@
 from django.shortcuts import (render, redirect, reverse, HttpResponse)
 import json 
+from pizza_dojo.utils.decorators import select_store_decorator
 
+
+@select_store_decorator
 def view_cart(request):
 
     return render(request, 'cart/cart.html')
@@ -14,7 +17,7 @@ def add_to_cart(request, product_id):
     cart = request.session.get('cart', [])
     quantity = request.POST.get('quantity')
     cart.append({'product_id': product_id, 'size': size, 'price': price})
-    
+
 
     print('Added to cart: ', cart)
     request.session['cart'] = cart

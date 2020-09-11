@@ -1,7 +1,9 @@
 from django.shortcuts import render, redirect
 from .models import Product, Topping, ToppingAmount
+from pizza_dojo.utils.decorators import select_store_decorator
 
 
+@select_store_decorator
 def menu(request):
     pizza_list = []
     side_list = []
