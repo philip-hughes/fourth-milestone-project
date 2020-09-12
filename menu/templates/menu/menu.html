@@ -5,30 +5,38 @@
 {% endblock %}
 
 {% block content %}
-<h1>Pizzas</h1>
 <a href="{% url 'view_cart' %}">View cart</a>
-{% for pizza in pizzas %}
-<div>
-<img src="{{pizza.0.image_url}}">
-<form class="form" action="{% url 'add_to_cart' pizza.0.sku %}" method="POST">
-{% csrf_token %}
-    <div class="menu-item">
-        <span>{{ pizza.0.name }}</span>
-        <ul>
-         {% for topping in pizza.1 %}
-            <li>{{ topping.1 }} {{ topping.0 }}</li> 
-         {% endfor %}
-         </ul>
-    </div>
-    <select name="size_price">
-        <option value='{ "size": "small", "price":"{{pizza.0.small_price}}" }'>Small {{pizza.0.small_price}}</option>
-        <option value='{ "size": "medium", "price":"{{pizza.0.medium_price}}" }'>Medium {{pizza.0.medium_price}}</option>
-        <option value='{ "size": "large", "price":"{{pizza.0.large_price}}" }'>Large {{pizza.0.large_price}}</option>
-    </select>
- <input type="submit" value="Add">   
- </form>
- </div>   
-{% endfor %}
+<section id="pizza-section">
+    <h1>Pizzas</h1>
+    <div class="row no-gutters" id="pizzaList">
+        {% for pizza in pizzas %}
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3 menu-item-wrapper">
+            <div class="menu-item-details">
+                <img src="{{pizza.0.image_url}}">
+                <span>{{ pizza.0.name }}</span>
+            </div>
+            <div class="menu-item-options">    
+                <form class="form" action="{% url 'add_to_cart' pizza.0.sku %}" method="POST">
+                {% csrf_token %}                                        
+                    <select name="size_price">
+                        <option value='{ "size": "small", "price":"{{pizza.0.small_price}}" }'>Small {{pizza.0.small_price}}</option>
+                        <option value='{ "size": "medium", "price":"{{pizza.0.medium_price}}" }'>Medium {{pizza.0.medium_price}}</option>
+                        <option value='{ "size": "large", "price":"{{pizza.0.large_price}}" }'>Large {{pizza.0.large_price}}</option>
+                    </select>
+                    <input type="submit" value="Add">   
+                </form>
+            </div>
+            <!--div class="pizza-toppings">
+                <ul>
+                {% for topping in pizza.1 %}
+                    <li>{{ topping.1 }} {{ topping.0 }}</li> 
+                {% endfor %}
+                </ul>
+            </div-->
+        </div> 
+        {% endfor %}
+    </div>        
+</section>
 <h1>Sides</h1>
 {% for side in sides %}
 <form class="form" action="{% url 'add_to_cart' side.sku %}" method="POST">
