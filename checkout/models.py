@@ -20,7 +20,6 @@ class Order(models.Model):
     order_status = models.CharField(choices=STATUS_CHOICES, default='NEW', max_length=20, null=True, blank=True)
     store = models.ForeignKey(Store, null=True, blank=True, on_delete=models.CASCADE)
     delivery = models.BooleanField(default=False)
-    collection = models.BooleanField(default=False)
     full_name = models.CharField(max_length=50, null=False, blank=False)
     email = models.EmailField(max_length=254, null=False, blank=False)
     phone_number = models.CharField(max_length=20, null=False, blank=False)
