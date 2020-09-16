@@ -20,10 +20,14 @@ def select_store(request):
         print("working..................")
         latitude = request.POST['lat']
         longitude = request.POST['long']
-        customer_address_text = request.POST['user_address']
-        request.session['customer_address'] = customer_address_text
+        customer_address = request.POST['customer_address'].split(',')
+        customer_address = {
+        "street_address1" : customer_address[0],
+        "street_address2" : customer_address[1],
+        "county" : customer_address[2],
+        }
+        request.session['customer_address'] = customer_address
         print('request session', request.session['customer_address'])
-        print('customer address: ', customer_address_text)
         customer_address_coordinates = (latitude, longitude)
         all_stores = Store.objects.all()
         nearby_stores = []

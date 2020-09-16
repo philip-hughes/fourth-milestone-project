@@ -44,7 +44,12 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY
         )
-        order_form = OrderForm()
+        customer_address = request.session['customer_address']
+        order_form = OrderForm(initial={
+            'street_address1': customer_address['street_address1'],
+            'street_address2': customer_address['street_address2'],
+            'county': customer_address['county'],
+                })
         context = {
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
