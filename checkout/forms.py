@@ -12,7 +12,7 @@ class OrderForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         placeholders = {
-            'name': 'Full Name',
+            'name': 'Name',
             'email': 'Email Address',
             'phone_number': 'Phone Number',
             'street_address1': 'Street Address 1',
@@ -20,7 +20,7 @@ class OrderForm(forms.ModelForm):
             'county': 'County',
         }
 
-        self.fields['full_name'].widget.attrs['autofocus'] = True
+        self.fields['name'].widget.attrs['autofocus'] = True
         for field in self.fields:
             if self.fields[field].required:
                 placeholder = f'{placeholders[field]} *'

@@ -15,13 +15,12 @@ def checkout(request):
     if request.method == 'POST':
         print('THis is a POST request')
         form_data = {
-            'full_name': request.POST['full_name'],
+            'name': request.POST['name'],
             'email': request.POST['email'],
             'phone_number': request.POST['phone_number'],
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
-            'postcode': request.POST['postcode'],
             }
 
         order_form = OrderForm(form_data)
