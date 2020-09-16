@@ -28,6 +28,7 @@ def checkout(request):
             order = order_form.save(commit=False)
             store_id = request.session['store']
             order.store = get_object_or_404(Store, pk=store_id)
+            order.delivery = request.session['delivery']
             order.save()
             return redirect(reverse('checkout_success'))
 

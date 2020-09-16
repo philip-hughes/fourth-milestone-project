@@ -27,8 +27,8 @@
     <div>
         <span>{{store.name}}</span>    
     </div>
-    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=true">Deliver</a>
-    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=false">Collect</a>
+    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=True">Deliver</a>
+    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=False">Collect</a>
     
                                                
 {% endfor %}    

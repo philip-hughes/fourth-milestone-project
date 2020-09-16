@@ -11,7 +11,7 @@ def select_store(request):
         print('store name working: ', request.GET['store'])
         store_id = request.GET['store']
         delivery = request.GET['delivery']
-        print('delivery: ', delivery)
+        request.session['delivery'] = delivery
         store = request.session['store'] = store_id
         print('selected store: ', store)
         return redirect('menu')
