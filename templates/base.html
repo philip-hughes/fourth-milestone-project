@@ -21,7 +21,18 @@
     <title>Pizza Dojo</title>
 </head>
 <body>
-    <header><div>{{store.name}}</div></header>
+    <header>
+        <div>{{store.name}}</div>
+        <div>
+            {% if request.user.is_authenticated %}
+                <a href="{% url 'profile' %}">My Profile</a>
+                <a href="{% url 'account_logout' %}">Logout</a>
+            {% else %}
+                <a href="{% url 'account_signup' %}">Register</a>
+                <a href="{% url 'account_login' %}">Login</a>
+            {% endif %}
+        </div>
+    </header>
 {% block content %} <h1>blah</h1>{% endblock %}
 
 {% block postloadjs %}
