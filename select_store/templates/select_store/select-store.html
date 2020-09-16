@@ -15,7 +15,7 @@
 {% csrf_token %}
     <input type="text" name="test" value="test value">
     <label>Location:</label>
-    <input type="text" class="form-control" id="search_input" placeholder="Type address..." />
+    <input name="user_address" type="text" class="form-control" id="search_input" placeholder="Type address..." />
     <button type="submit">Go</button>
     <input name="lat" type="hidden" id="loc_lat" value=""/>
     <input name="long" type="hidden" id="loc_long" value=""/>
