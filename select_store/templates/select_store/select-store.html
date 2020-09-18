@@ -5,6 +5,7 @@
 {% endblock %}
 
 {% block content %}
+<h1>{{user.contact_number}}</h1>
 <!-- Autocomplete location search input --> 
 <form method="POST" action="{% url 'select_store' %}">
 {% csrf_token %}
