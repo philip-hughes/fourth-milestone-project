@@ -9,11 +9,11 @@ class CustomSignupForm(SignupForm):
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
-        user.first_name = self.cleaned_data['first_name']
-        user.contact_number = self.cleaned_data['contact_number']
+        first_name = self.cleaned_data['first_name']
+        contact_number = self.cleaned_data['contact_number']
 
-        user_profile = UserProfile.objects.create(user=user, contact_number=user.contact_number)
+        user_profile = UserProfile.objects.create(user=user, contact_number=contact_number)
         user_profile.save()
 
-        print('signup request------: ', user.contact_number)
+        print('signup request------: ', contact_number)
         return user
