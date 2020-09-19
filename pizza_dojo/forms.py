@@ -13,11 +13,13 @@ class CustomSignupForm(SignupForm):
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
-        first_name = self.cleaned_data['first_name']
         contact_number = self.cleaned_data['contact_number']
-        customer_address = self.cleaned_data['search_input']
+        customer_address = self.cleaned_data['search_input'].split(',')
         print('signup address: ', customer_address)
-
-        user_profile = UserProfile.objects.create(user=user, contact_number=contact_number)
+        user_profile = UserProfile.objects.create(user=user,
+                                                  contact_number=contact_number,
+                                                  street_address1=customer_address[0],
+                                                  street_address2=customer_address[1],
+                                                  county=customer_address[2])
         user_profile.save()
         return user
