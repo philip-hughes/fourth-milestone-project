@@ -4,16 +4,20 @@ from profiles.models import UserProfile
 
 
 class CustomSignupForm(SignupForm):
+    def __init__(self, *args, **kwargs):
+        super(CustomSignupForm, self).__init__(*args, **kwargs) 
+        self.auto_id = '%s'
     first_name = forms.CharField(max_length=30, label='First Name')
     contact_number = forms.CharField(max_length=20, label='Contact number')
+    search_input = forms.CharField(max_length=200, label='Search input', )
 
     def save(self, request):
         user = super(CustomSignupForm, self).save(request)
         first_name = self.cleaned_data['first_name']
         contact_number = self.cleaned_data['contact_number']
+        customer_address = self.cleaned_data['search_input']
+        print('signup address: ', customer_address)
 
         user_profile = UserProfile.objects.create(user=user, contact_number=contact_number)
         user_profile.save()
-
-        print('signup request------: ', contact_number)
         return user
