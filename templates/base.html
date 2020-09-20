@@ -27,6 +27,7 @@
 <body>
     <header>
         <div>{{store.name}}</div>
+        <div>{{user.name}}</div>
         <div>
             {% if request.user.is_authenticated %}
                 <a href="{% url 'profile' %}">My Profile</a>
