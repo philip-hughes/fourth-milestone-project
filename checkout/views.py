@@ -31,6 +31,7 @@ def checkout(request):
             order.store = get_object_or_404(Store, pk=store_id)
             order.delivery = request.session['delivery']
             order.order_total = context_cart['total']
+            order.user = request.user
             order.save()
             return redirect(reverse('checkout_success'))
 
