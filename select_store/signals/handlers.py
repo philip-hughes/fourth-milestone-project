@@ -39,3 +39,4 @@ def set_store(sender, user, request, **kwargs):
             if store_distance <= nearest_store['distance']:
                 nearest_store = {'distance': store_distance, 'store': store}
         request.session['store'] = nearest_store['store'].id
+        request.session['delivery'] = True
