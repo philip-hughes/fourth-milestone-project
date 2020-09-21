@@ -12,7 +12,7 @@ def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
     context_cart = cart_contents(request)
- 
+
     if request.method == 'POST':
         print('THis is a POST request')
         form_data = {
@@ -22,7 +22,7 @@ def checkout(request):
             'street_address1': request.POST['street_address1'],
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
-            }
+        }
 
         order_form = OrderForm(form_data)
         if order_form.is_valid():
@@ -47,11 +47,22 @@ def checkout(request):
             currency=settings.STRIPE_CURRENCY
         )
         customer_address = request.session['customer_address']
-        order_form = OrderForm(initial={
-            'street_address1': customer_address['street_address1'],
-            'street_address2': customer_address['street_address2'],
-            'county': customer_address['county'],
-                })
+        customer_details = request.session.get('customer_details')
+        if customer_details:
+            order_form = OrderForm(initial={
+                'name': customer_details['name'],
+                'email': customer_details['email'],
+                'phone_number': customer_details['contact_number'],
+                'street_address1': customer_address['street_address1'],
+                'street_address2': customer_address['street_address2'],
+                'county': customer_address['county'],
+            })
+        else:
+            order_form = OrderForm(initial={
+                'street_address1': customer_address['street_address1'],
+                'street_address2': customer_address['street_address2'],
+                'county': customer_address['county'],
+            })
         context = {
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,

@@ -21,6 +21,13 @@ def set_store(sender, user, request, **kwargs):
             "county": user_profile.street_address2,
         }
         request.session['customer_address'] = customer_address
+        customer_contact_details = {
+            "name": request.user.first_name,
+            "email": request.user.email,
+            "contact_number": user_profile.contact_number,
+        }
+        print('customer contact details: ', customer_contact_details)
+        request.session['customer_details'] = customer_contact_details
         customer_address_coordinates = (latitude, longitude)
         all_stores = Store.objects.all()
         nearest_store = {'distance': 5000, 'store': ''}
