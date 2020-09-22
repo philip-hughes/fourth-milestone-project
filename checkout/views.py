@@ -1,9 +1,11 @@
 from django.shortcuts import (render, redirect, reverse, get_object_or_404)
 from cart.contexts import cart_contents
 from django.conf import settings
+from .models import Order, OrderLineItem
 from .forms import OrderForm
 import stripe
 from select_store.models import Store
+from menu.models import Product
 from pizza_dojo.utils.decorators import select_store_decorator
 
 
@@ -11,7 +13,8 @@ from pizza_dojo.utils.decorators import select_store_decorator
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    context_cart = cart_contents(request)
+    cart = cart_contents(request)
+    grand_total = float(cart['grand_total'])
 
     if request.method == 'POST':
         print('THis is a POST request')
@@ -30,9 +33,20 @@ def checkout(request):
             store_id = request.session['store']
             order.store = get_object_or_404(Store, pk=store_id)
             order.delivery = request.session['delivery']
-            order.order_total = context_cart['total']
+            order.order_total = cart['grand_total']
             order.user = request.user
             order.save()
+            for item in cart['cart_items']:
+                order_line_item = OrderLineItem(
+                    order=order,
+                    product=item['product'],
+                    size=item['size'],
+                    quantity=item['quantity'],
+                    lineitem_total=item['sub_total'],
+                    customizations=item['customizations']
+                )
+                order_line_item.save()
+
             return redirect(reverse('checkout_success'))
 
         else:
@@ -41,7 +55,7 @@ def checkout(request):
     else:
         print('THis is NOT a POST request')
 
-        stripe_total = round(context_cart['total'] * 100)
+        stripe_total = round(grand_total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,

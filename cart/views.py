@@ -16,13 +16,14 @@ def add_to_cart(request, product_id):
     price = size_price['price']
     product_type = request.POST.get('product_type')
     quantity = int(request.POST.get('quantity'))
+    customizations = request.POST.get('customizations')
     if product_type == 'PIZZA':
-        cart.extend([{'product_id': product_id, 'size': size, 'item_price': price, 'quantity': 1}] * quantity)
+        cart.extend([{'product_id': product_id, 'size': size, 'item_price': price, 'quantity': 1, 'customizations': customizations}] * quantity)
         request.session['cart'] = cart
         return redirect('menu')
 
     if cart == []:
-        cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity})
+        cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity, 'customizations': customizations})
         request.session['cart'] = cart
         return redirect('menu')
     else:    
@@ -32,16 +33,7 @@ def add_to_cart(request, product_id):
                 request.session['cart'] = cart
                 return redirect('menu')
     """ Cart has items, but none are identical to the new item """
-    cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity})
-    request.session['cart'] = cart
-    return redirect('menu')
-
-              
-
-                
-
-
-    print('Added to cart: ', cart)
+    cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity, 'customizations': customizations})
     request.session['cart'] = cart
     return redirect('menu')
 

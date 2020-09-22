@@ -9,18 +9,22 @@ def cart_contents(request):
     cart_items = []
     grand_total = 0
     cart = request.session.get('cart', [])
-
     print('Context cart: ', cart)
 
     for item in cart:
+
         print('context product id: ', item['product_id'])
         product = get_object_or_404(Product, pk=item['product_id'])
         item_price = float(item['item_price'])
         quantity = int(item['quantity'])
+        size = item['size']
+        customizations = item['customizations']
         sub_total = item_price * quantity
         item = {
             'product': product,
             'quantity': quantity,
+            'size': size,
+            'customizations': customizations,
             'sub_total': format(sub_total, '.2f')
         }
         cart_items.append(item)
