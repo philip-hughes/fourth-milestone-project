@@ -31,7 +31,7 @@ def add_to_cart(request, product_id):
                 cart[index]['quantity'] += quantity
                 request.session['cart'] = cart
                 return redirect('menu')
-
+    """ Cart has items, but none are identical to the new item """
     cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity})
     request.session['cart'] = cart
     return redirect('menu')
