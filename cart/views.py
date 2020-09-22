@@ -16,7 +16,11 @@ def add_to_cart(request, product_id):
     price = size_price['price']
     cart = request.session.get('cart', [])
     quantity = request.POST.get('quantity')
-    cart.append({'product_id': product_id, 'size': size, 'price': price})
+    if quantity:
+        quantity = quantity
+    else:
+        quantity = 1
+    cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity})
 
 
     print('Added to cart: ', cart)
