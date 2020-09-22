@@ -23,6 +23,8 @@
                         <option value='{ "size": "medium", "price":"{{pizza.0.medium_price}}" }'>Medium {{pizza.0.medium_price}}</option>
                         <option value='{ "size": "large", "price":"{{pizza.0.large_price}}" }'>Large {{pizza.0.large_price}}</option>
                     </select>
+                    <input type="hidden"  name="product_type" value={{pizza.0.product_type}}>
+                    <input type="hidden"  name="quantity" value="1">
                     <input type="submit" value="Add">   
                 </form>
             </div>
@@ -53,6 +55,7 @@
         <option value="2">2</option>
         <option value="3">3</option>
     </select>
+    <input type="hidden"  name="product_type" value={{side.product_type}}>
  <input type="submit" value="Add">   
  </form>
 {% endfor %}
@@ -72,6 +75,7 @@
         <option value="2">2</option>
         <option value="3">3</option>
     </select>
+    <input type="hidden"  name="product_type" value={{dessert.product_type}}>
  <input type="submit" value="Add">   
  </form>
 {% endfor %}
@@ -90,6 +94,7 @@
         <option value="2">2</option>
         <option value="3">3</option>
     </select>
+    <input type="hidden" name="product_type" value={{drink.product_type}}>
  <input type="submit" value="Add">   
  </form>
 {% endfor %}

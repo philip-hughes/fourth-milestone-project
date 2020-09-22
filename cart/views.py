@@ -10,17 +10,35 @@ def view_cart(request):
 
 
 def add_to_cart(request, product_id):
-    print('Adding to cart...')
+    cart = request.session.get('cart', [])
     size_price = json.loads(request.POST.get('size_price'))
     size = size_price['size']
     price = size_price['price']
-    cart = request.session.get('cart', [])
-    quantity = request.POST.get('quantity')
-    if quantity:
-        quantity = quantity
-    else:
-        quantity = 1
+    product_type = request.POST.get('product_type')
+    quantity = int(request.POST.get('quantity'))
+    if product_type == 'PIZZA':
+        cart.extend([{'product_id': product_id, 'size': size, 'item_price': price, 'quantity': 1}] * quantity)
+        request.session['cart'] = cart
+        return redirect('menu')
+
+    if cart == []:
+        cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity})
+        request.session['cart'] = cart
+        return redirect('menu')
+    else:    
+        for index, item in enumerate(cart):
+            if (item['product_id'] == product_id) and (item['size'] == size):
+                cart[index]['quantity'] += quantity
+                request.session['cart'] = cart
+                return redirect('menu')
+
     cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity})
+    request.session['cart'] = cart
+    return redirect('menu')
+
+              
+
+                
 
 
     print('Added to cart: ', cart)

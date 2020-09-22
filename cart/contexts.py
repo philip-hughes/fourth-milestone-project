@@ -4,7 +4,6 @@ from select_store.models import Store
 
 
 def cart_contents(request):
-
     store_id = request.session.get('store', '1')
     store = get_object_or_404(Store, pk=store_id)
     cart_items = []
