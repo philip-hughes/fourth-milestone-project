@@ -4,7 +4,17 @@
 <h1>Cart screen</h1>
 <a href="{% url 'checkout' %}">Checkout</a>
 {% for item in cart_items %}
-<span>{{item.name}}</span>
+    {% if item.product.product_type == 'PIZZA' %}
+    <div>
+        <span>{{item.product.name}}</span>
+        <span>Quantity:{{item.quantity}}</span>
+    </div>
+    {% else %}
+    <div>
+        <span>{{item.product.name}}</span>
+        <span>Quantity:{{item.quantity}}</span>
+    </div>
+    {% endif %}
 {% endfor %}
-<span>Total: {{total}}</span>
+<span>Total: {{grand_total}}</span>
 {% endblock %}
