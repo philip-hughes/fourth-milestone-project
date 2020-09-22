@@ -3,6 +3,7 @@ import json
 from pizza_dojo.utils.decorators import select_store_decorator
 
 
+
 @select_store_decorator
 def view_cart(request):
 
@@ -20,22 +21,22 @@ def add_to_cart(request, product_id):
     if product_type == 'PIZZA':
         cart.extend([{'product_id': product_id, 'size': size, 'item_price': price, 'quantity': 1, 'customizations': customizations}] * quantity)
         request.session['cart'] = cart
-        return redirect('menu')
+        return redirect(request.META.get('HTTP_REFERER'))
 
     if cart == []:
         cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity, 'customizations': customizations})
         request.session['cart'] = cart
-        return redirect('menu')
+        return redirect(request.META.get('HTTP_REFERER'))
     else:    
         for index, item in enumerate(cart):
             if (item['product_id'] == product_id) and (item['size'] == size):
                 cart[index]['quantity'] += quantity
                 request.session['cart'] = cart
-                return redirect('menu')
+                return redirect(request.META.get('HTTP_REFERER'))
     """ Cart has items, but none are identical to the new item """
     cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity, 'customizations': customizations})
     request.session['cart'] = cart
-    return redirect('menu')
+    return redirect(request.META.get('HTTP_REFERER'))
 
 
 def adjust_cart(request, product_id):
