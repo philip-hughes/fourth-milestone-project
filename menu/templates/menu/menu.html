@@ -3,6 +3,9 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'menu/css/menu.css' %}">
 {% endblock %}
+{% block extra_js %}
+<script type="text/javascript" src="{% static 'menu/js/menu.js' %}"></script
+{% endblock %}
 
 {% block content %}
 <a href="{% url 'view_cart' %}">View cart</a>
@@ -25,7 +28,7 @@
                     </select>
                     <input type="hidden"  name="product_type" value={{pizza.0.product_type}}>
                     <input type="hidden"  name="quantity" value="1">
-                    <input type="submit" value="Add">   
+                    <input type="submit" class="item-submit" value="Add">   
                 </form>
             </div>
             <!--div class="pizza-toppings">
@@ -56,7 +59,7 @@
         <option value="3">3</option>
     </select>
     <input type="hidden"  name="product_type" value={{side.product_type}}>
- <input type="submit" value="Add">   
+ <input type="submit" class="item-submit" value="Add">   
  </form>
 {% endfor %}
 <h1>Desserts</h1>
@@ -76,7 +79,7 @@
         <option value="3">3</option>
     </select>
     <input type="hidden"  name="product_type" value={{dessert.product_type}}>
- <input type="submit" value="Add">   
+ <input type="submit" class="item-submit" value="Add">   
  </form>
 {% endfor %}
 <h1>Drinks</h1>
@@ -95,7 +98,7 @@
         <option value="3">3</option>
     </select>
     <input type="hidden" name="product_type" value={{drink.product_type}}>
- <input type="submit" value="Add">   
+ <input type="submit" class="item-submit" value="Add">   
  </form>
 {% endfor %}
 <a href="{% url 'flush_session' %}">Flush session</a>
