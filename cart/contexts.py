@@ -15,9 +15,9 @@ def cart_contents(request):
     print('Context cart: ', cart)
 
     for item in cart:
-
-        print('context product id: ', item['product_id'])
-        product = get_object_or_404(Product, pk=item['product_id'])
+        product_id = item['product_id']
+        product = get_object_or_404(Product, pk=product_id)
+        product_type = product.product_type
         item_price = float(item['item_price'])
         quantity = int(item['quantity'])
         size = item['size']
@@ -25,8 +25,10 @@ def cart_contents(request):
         sub_total = item_price * quantity
         item = {
             'product': product,
+            'product_id': product_id,
             'quantity': quantity,
             'size': size,
+            'product_type': product_type,
             'customizations': customizations,
             'sub_total': format(sub_total, '.2f')
         }

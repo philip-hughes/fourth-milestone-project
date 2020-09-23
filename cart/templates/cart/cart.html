@@ -1,20 +1,44 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block content %}
 <h1>Cart screen</h1>
 <a href="{% url 'checkout' %}">Checkout</a>
 {% for item in cart_items %}
     {% if item.product.product_type == 'PIZZA' %}
-    <div>
-        <span>{{item.product.name}}</span>
-        <span>Quantity:{{item.quantity}}</span>
+    <div class="cart-item-wrapper">
+        <div>
+            <span>{{item.product.name}}</span>
+            <span>Quantity:{{item.quantity}}</span>
+        </div>
+        <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
+        {% csrf_token %} 
+        <input type="hidden" name="product_type" value={{item.product_type}}>
+        <input type="hidden" name="product_id" value={{item.product_id}}>
+        <input type="hidden" class="adjust-type" name="adjust-type" value>
+        <button class="adjust-cart increase"><span>Increase</span></button>
+        <button class="adjust-cart remove"><span>Remove</span></button>
+        </form>  
     </div>
     {% else %}
-    <div>
-        <span>{{item.product.name}}</span>
-        <span>Quantity:{{item.quantity}}</span>
+    <div class="cart-item-wrapper">
+        <div>
+            <span>{{item.product.name}}</span>
+            <span>Quantity:{{item.quantity}}</span>
+        </div>
+        <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
+        {% csrf_token %} 
+        <input type="hidden" name="product_type" value={{item.product_type}}>
+        <input type="hidden" name="product_id" value={{item.product_id}}>
+        <input type="hidden" class="adjust-type" name="adjust-type" value>
+        <button class="adjust-cart increase"><span>Increase</span></button>
+        <button class="adjust-cart decrease"><span>Decrease</span></button>
+        <button class="adjust-cart remove"><span>Remove</span></button>
+        </form>  
     </div>
     {% endif %}
 {% endfor %}
 <span>Total: {{grand_total}}</span>
+{% endblock %}
+{% block postloadjs %}
+<script type="text/javascript" src="{% static 'cart/js/cart.js' %}"></script
 {% endblock %}

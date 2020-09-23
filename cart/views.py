@@ -40,7 +40,8 @@ def add_to_cart(request, product_id):
 
 
 def adjust_cart(request, product_id):
-
+    adjust_type = request.POST.get('adjust-type')
+    print('adjust type: ',adjust_type )
     return redirect(reverse('view_cart'))
 
 
