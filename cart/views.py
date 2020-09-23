@@ -40,11 +40,8 @@ def add_to_cart(request, product_id):
 
 
 def adjust_cart(request, product_id):
+    cart = request.session.get('cart', [])
     adjust_type = request.POST.get('adjust-type')
     print('adjust type: ',adjust_type )
     return redirect(reverse('view_cart'))
 
-
-def remove_from_cart(request, product_id):
-
-    return HttpResponse(status=200)
