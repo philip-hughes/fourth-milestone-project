@@ -4,8 +4,11 @@ from select_store.models import Store
 
 
 def cart_contents(request):
-    store_id = request.session.get('store', '1')
-    store = get_object_or_404(Store, pk=store_id)
+    store_id = request.session.get('store', None)
+    if store_id:
+        store = get_object_or_404(Store, pk=store_id)
+    else:
+        store = None
     cart_items = []
     grand_total = 0
     cart = request.session.get('cart', [])
