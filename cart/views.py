@@ -42,6 +42,16 @@ def add_to_cart(request, product_id):
 def adjust_cart(request, product_id):
     cart = request.session.get('cart', [])
     adjust_type = request.POST.get('adjust-type')
-    print('adjust type: ',adjust_type )
+    item_index = int(request.POST.get('item-index'))   
+    if adjust_type == 'remove':
+        print('adjust type: ', adjust_type)
+        cart.pop(item_index)
+        request.session['cart'] = cart
+        return redirect(reverse('view_cart'))
+
+    print('adjust type: ', adjust_type )
+ 
+    print('adjusting product: ', cart[item_index])
+
     return redirect(reverse('view_cart'))
 

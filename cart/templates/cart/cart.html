@@ -12,12 +12,12 @@
         </div>
         <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
         {% csrf_token %} 
-        <input type="hidden" name="product_type" value={{item.product_type}}>
-        <input type="hidden" name="product_id" value={{item.product_id}}>
-        <input type="hidden" class="adjust-type" name="adjust-type" value>
-        <input type="hidden" name="item-index" value={{item.index}}>
-        <button class="adjust-cart increase"><span>Increase</span></button>
-        <button class="adjust-cart remove"><span>Remove</span></button>
+            <input type="hidden" name="product_type" value={{item.product_type}}>
+            <input type="hidden" name="product_id" value={{item.product_id}}>
+            <input type="hidden" name="item-index" value={{forloop.counter0}}>
+            <input type="hidden" class="adjust-type" name="adjust-type" value>
+            <button class="adjust-cart increase"><span>Increase</span></button>
+            <button class="adjust-cart remove"><span>Remove</span></button>
         </form>  
     </div>
     {% else %}
@@ -28,12 +28,12 @@
         </div>
         <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
         {% csrf_token %} 
-        <input type="hidden" name="product_type" value={{item.product_type}}>
-        <input type="hidden" name="product_id" value={{item.product_id}}>
-        <input type="hidden" class="adjust-type" name="adjust-type" value>
-        <button class="adjust-cart increase"><span>Increase</span></button>
-        <button class="adjust-cart decrease"><span>Decrease</span></button>
-        <button class="adjust-cart remove"><span>Remove</span></button>
+            <input type="hidden" name="product_type" value={{item.product_type}}>
+            <input type="hidden" name="product_id" value={{item.product_id}}>
+            <input type="hidden" name="item-index" value={{forloop.counter0}}>
+            <input type="hidden" class="adjust-type" name="adjust-type" value>
+            <button class="adjust-cart increase"><span>Increase</span></button>
+            <button class="adjust-cart remove"><span>Remove</span></button>
         </form>  
     </div>
     {% endif %}
