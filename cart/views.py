@@ -1,7 +1,6 @@
-from django.shortcuts import (render, redirect, reverse, HttpResponse)
-import json 
+from django.shortcuts import (render, redirect, reverse)
+import json
 from pizza_dojo.utils.decorators import select_store_decorator
-
 
 
 @select_store_decorator
@@ -43,7 +42,7 @@ def adjust_cart(request, product_id):
     cart = request.session.get('cart', [])
     adjust_type = request.POST.get('adjust-type')
     product_type = request.POST.get('product-type')
-    item_index = int(request.POST.get('item-index'))   
+    item_index = int(request.POST.get('item-index'))
     if adjust_type == 'remove':
         cart.pop(item_index)
         request.session['cart'] = cart
@@ -64,10 +63,4 @@ def adjust_cart(request, product_id):
             cart[item_index]['quantity'] -= 1
             request.session['cart'] = cart
         return redirect(reverse('view_cart'))
-
-    print('adjust type: ', adjust_type )
- 
-    print('adjusting product: ', cart[item_index])
-
-    return redirect(reverse('view_cart'))
 
