@@ -59,6 +59,12 @@ def adjust_cart(request, product_id):
         request.session['cart'] = cart
         return redirect(reverse('view_cart'))
 
+    if (adjust_type == 'decrease') and (product_type != 'PIZZA'):
+        if cart[item_index]['quantity'] > 1:
+            cart[item_index]['quantity'] -= 1
+            request.session['cart'] = cart
+        return redirect(reverse('view_cart'))
+
     print('adjust type: ', adjust_type )
  
     print('adjusting product: ', cart[item_index])
