@@ -1,4 +1,46 @@
 /***************Menu****************/
+
+.menu-section-heading {
+    text-align: center;
+}
+
+.product-list {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+.menu-item-wrapper {
+    position: relative;
+    background-color: yellow;
+}
+
 .menu-item {
-    border: black solid 1px;
+    position: relative;
+    max-width: 230px;
+    margin:0 auto;
+    background-color: black;
+}
+
+.menu-item-details img {
+    max-width: 230px;
+}
+
+.menu-item-details span {
+    display: block;
+    padding-left: 5px;
+    color: white;
+    
+    font-weight: 400;
+}
+
+.menu-item-options select {
+    width: 100%;
+    background-color: black;
+    color: white;
+    border: none;
+    margin: 0px;
+    outline: none;
+}
+
+.item-submit {
+    width: 100%;
 }
