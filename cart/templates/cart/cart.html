@@ -12,8 +12,8 @@
         </div>
         <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
         {% csrf_token %} 
-            <input type="hidden" name="product_type" value={{item.product_type}}>
-            <input type="hidden" name="product_id" value={{item.product_id}}>
+            <input type="hidden" name="product-type" value={{item.product_type}}>
+            <input type="hidden" name="product-id" value={{item.product_id}}>
             <input type="hidden" name="item-index" value={{forloop.counter0}}>
             <input type="hidden" class="adjust-type" name="adjust-type" value>
             <button class="adjust-cart increase"><span>Increase</span></button>
@@ -28,8 +28,8 @@
         </div>
         <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
         {% csrf_token %} 
-            <input type="hidden" name="product_type" value={{item.product_type}}>
-            <input type="hidden" name="product_id" value={{item.product_id}}>
+            <input type="hidden" name="product-type" value={{item.product_type}}>
+            <input type="hidden" name="product-id" value={{item.product_id}}>
             <input type="hidden" name="item-index" value={{forloop.counter0}}>
             <input type="hidden" class="adjust-type" name="adjust-type" value>
             <button class="adjust-cart increase"><span>Increase</span></button>

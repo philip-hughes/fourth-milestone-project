@@ -42,10 +42,20 @@ def add_to_cart(request, product_id):
 def adjust_cart(request, product_id):
     cart = request.session.get('cart', [])
     adjust_type = request.POST.get('adjust-type')
+    product_type = request.POST.get('product-type')
     item_index = int(request.POST.get('item-index'))   
     if adjust_type == 'remove':
-        print('adjust type: ', adjust_type)
         cart.pop(item_index)
+        request.session['cart'] = cart
+        return redirect(reverse('view_cart'))
+
+    if (adjust_type == 'increase') and (product_type == 'PIZZA'):
+        product = cart[item_index]
+        cart.append(product)
+        request.session['cart'] = cart
+        return redirect(reverse('view_cart'))
+    elif (adjust_type == 'increase'):
+        cart[item_index]['quantity'] += 1
         request.session['cart'] = cart
         return redirect(reverse('view_cart'))
 
