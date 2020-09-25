@@ -51,16 +51,22 @@
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 menu-item-wrapper">
             <div class="menu-item">
                 <div class="menu-item-details">
-                    <img src="{{side.image_url}}">
-                    <span>{{ side.name }}</span>
+                    <img src="{{side.product.image_url}}">
+                    <span>{{ side.product.name }}</span>
                 </div>
                 <div class="menu-item-options">    
-                    <form class="form" action="{% url 'add_to_cart' side.sku %}" method="POST">
-                    {% csrf_token %}                                        
+                    <form class="form" action="{% url 'add_to_cart' side.product.sku %}" method="POST">
+                    {% csrf_token %}
+                    {% if side.sizes|length == 1%}
+                        <input type="hidden" value='{ "size": "{{side.sizes.0.size}}", "price":"{{side.sizes.0.price}}" }' name="size_price">
+                        <span>{{side.sizes.0.price}}</span>
+                    {% else %}
                         <select name="size_price">
-                            <option value='{ "size": "medium", "price":"{{side.medium_price}}" }'>Medium {{side.medium_price}}</option>
-                            <option value='{ "size": "large", "price":"{{side.large_price}}" }'>Large {{side.large_price}}</option>
+                        {% for size in side.sizes %}
+                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>Medium {{size.price}}</option>
+                        {% endfor %}
                         </select>
+                    {% endif %}                                            
                         <select name="quantity">
                             <option value="1">1</option>
                             <option value="2">2</option>

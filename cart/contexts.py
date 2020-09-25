@@ -18,6 +18,7 @@ def cart_contents(request):
         product_id = item['product_id']
         product = get_object_or_404(Product, pk=product_id)
         product_type = product.product_type
+        print('COntext item price: ', item['item_price'])
         item_price = float(item['item_price'])
         quantity = int(item['quantity'])
         size = item['size']
