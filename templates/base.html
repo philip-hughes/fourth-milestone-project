@@ -6,9 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Dojo</title>
     {% block corecss %} 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
     {% endblock %}
     {% block extra_css %}{% endblock %}
 
@@ -21,24 +23,27 @@
     {% endblock %}
 
     {% block extra_js %}{% endblock %}
-
-    <title>Pizza Dojo</title>
 </head>
 <body>
     <header>
+        <div id="top-header">
+            <h1 id="main-title">PIZZA DOJO</h1>
+            {% if request.user.is_authenticated %}
+            <div id="auth-user-links">
+                <a href="{% url 'profile' %}"><span>Blah{{user.first_name}}</span></a>
+                <a href="{% url 'account_logout' %}"><span>Logout</span></a>
+            </div>    
+            {% else %}
+            <div id="unauth-user-links">
+                <a href="{% url 'account_signup' %}">Register</a>
+                <a href="{% url 'account_login' %}">Login</a>
+            </div>    
+            {% endif %}
+            
+        </div>
         {% if store %}
         <div>{{store.name}}</div>
         {% endif %}
-        <div>{{user.name}}</div>
-        <div>
-            {% if request.user.is_authenticated %}
-                <a href="{% url 'profile' %}">My Profile</a>
-                <a href="{% url 'account_logout' %}">Logout</a>
-            {% else %}
-                <a href="{% url 'account_signup' %}">Register</a>
-                <a href="{% url 'account_login' %}">Login</a>
-            {% endif %}
-        </div>
     </header>
 {% block content %} <h1>blah</h1>{% endblock %}
 

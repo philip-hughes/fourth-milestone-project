@@ -1,0 +1,16 @@
+#top-header {
+    position: relative;
+    height: 80px;
+    background-color:blueviolet;
+}
+
+#main-title {
+    text-align: center;
+}
+
+#auth-user-links, #unauth-user-links {
+    display: inline-block;
+    position: absolute;
+    right: 30px;
+    top: 15px;
+}
