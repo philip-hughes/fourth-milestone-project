@@ -38,12 +38,18 @@
                 <a href="{% url 'account_signup' %}">Register</a>
                 <a href="{% url 'account_login' %}">Login</a>
             </div>    
-            {% endif %}
-            
+            {% endif %}            
         </div>
         {% if store %}
-        <div>{{store.name}}</div>
+        <div id="bottom-header">
+            <div id="nav-link-wrapper">
+                <a href="{% url 'select_store' %}"><button class="nav-link-button"><span>{{store.name}}</span></button></a>
+                <a href="{% url 'menu' %}"><button class="nav-link-button"><span>Menu</span></button></a>
+                <a href="{% url 'view_cart' %}"><button class="nav-link-button"><span>Total: €{{grand_total}}</span></button></a>
+            </div>
+        </div>
         {% endif %}
+
     </header>
 {% block content %} <h1>blah</h1>{% endblock %}
 

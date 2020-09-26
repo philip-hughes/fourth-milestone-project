@@ -14,3 +14,23 @@
     right: 30px;
     top: 15px;
 }
+
+.menu-section-heading {
+    text-align: center;
+}
+
+#nav-link-wrapper {
+    text-align: center;
+}
+
+#nav-link-wrapper a {
+    text-decoration: none;
+}
+
+.nav-link-button {
+    display: inline-block;
+    height: 40px;
+    width: 230px;
+    background-color: blueviolet;
+    border: none;
+}
