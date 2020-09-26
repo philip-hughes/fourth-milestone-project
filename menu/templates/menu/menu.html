@@ -24,11 +24,11 @@
                     {% csrf_token %}                                        
                     {% if side.sizes|length == 1%}
                         <input type="hidden" value='{ "size": "{{pizza.sizes.0.size}}", "price":"{{pizza.sizes.0.price}}" }' name="size_price">
-                        <span>{{pizza.sizes.0.price}}</span>
+                        <span>{{size.size}} €{{pizza.sizes.0.price}}</span>
                     {% else %}
                         <select class="select-size" name="size_price">
                         {% for size in pizza.sizes %}
-                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>{{size.size}} {{size.price}}</option>
+                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>{{size.size}} €{{size.price}}</option>
                         {% endfor %}
                         </select>
                     {% endif %}
@@ -64,11 +64,11 @@
                     {% csrf_token %}
                     {% if side.sizes|length == 1%}
                         <input type="hidden" value='{ "size": "{{side.sizes.0.size}}", "price":"{{side.sizes.0.price}}" }' name="size_price">
-                        <span>{{side.sizes.0.price}}</span>
+                        <span>€{{side.sizes.0.price}}</span>
                     {% else %}
                         <select class="select-size" name="size_price">
                         {% for size in side.sizes %}
-                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>Medium {{size.price}}</option>
+                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>{{size.size}} €{{size.price}}</option>
                         {% endfor %}
                         </select>
                     {% endif %}
@@ -103,11 +103,11 @@
                     {% csrf_token %}
                     {% if dessert.sizes|length == 1%}
                         <input type="hidden" value='{ "size": "{{dessert.sizes.0.size}}", "price":"{{dessert.sizes.0.price}}" }' name="size_price">
-                        <span>{{dessert.sizes.0.price}}</span>
+                        <span>€{{dessert.sizes.0.price}}</span>
                     {% else %}
                         <select class="select-size" name="size_price">
                         {% for size in dessert.sizes %}
-                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>Medium {{size.price}}</option>
+                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>{{size.size}} €{{size.price}}</option>
                         {% endfor %}
                         </select>
                     {% endif %}
@@ -142,11 +142,11 @@
                     {% csrf_token %}
                     {% if drink.sizes|length == 1%}
                         <input type="hidden" value='{ "size": "{{drink.sizes.0.size}}", "price":"{{drink.sizes.0.price}}" }' name="size_price">
-                        <span>{{drink.sizes.0.price}}</span>
+                        <span>€{{drink.sizes.0.price}}</span>
                     {% else %}
                         <select class="select-size" name="size_price">
                         {% for size in drink.sizes %}
-                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>Medium {{size.price}}</option>
+                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>{{size.size}} €{{size.price}}</option>
                         {% endfor %}
                         </select>
                     {% endif %}
