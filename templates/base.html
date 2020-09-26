@@ -43,9 +43,9 @@
         {% if store %}
         <div id="bottom-header">
             <div id="nav-link-wrapper">
-                <a href="{% url 'select_store' %}"><button class="nav-link-button"><span>{{store.name}}</span></button></a>
-                <a href="{% url 'menu' %}"><button class="nav-link-button"><span>Menu</span></button></a>
-                <a href="{% url 'view_cart' %}"><button class="nav-link-button"><span>Total: €{{grand_total}}</span></button></a>
+                <a class="nav-link" href="{% url 'select_store' %}"><span>{{store.name}}</span></a>
+                <a class="nav-link" href="{% url 'menu' %}"><span>Menu</span></a>
+                <a class="nav-link" href="{% url 'view_cart' %}"><span>Total: €{{grand_total}}</span></a>
             </div>
         </div>
         {% endif %}

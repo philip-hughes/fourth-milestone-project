@@ -27,10 +27,12 @@
     text-decoration: none;
 }
 
-.nav-link-button {
+.nav-link {
     display: inline-block;
     height: 40px;
     width: 230px;
     background-color: blueviolet;
-    border: none;
+    border: 0;
+    margin: -3px;
+    padding: 0;
 }

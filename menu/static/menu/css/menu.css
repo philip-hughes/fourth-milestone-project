@@ -8,20 +8,22 @@ html {
     text-align: center;
 }
 
-#section-button-wrapper {
+#section-link-wrapper{
     text-align: center;
 }
 
-#section-button-wrapper a {
+#section-link-wrapper a {
     text-decoration: none;
 }
 
-.section-button {
+.section-link {
     display: inline-block;
     height: 40px;
     width: 160px;
     background-color: blueviolet;
     border: none;
+    margin: -3px;
+ 
 }
 
 .product-list {
