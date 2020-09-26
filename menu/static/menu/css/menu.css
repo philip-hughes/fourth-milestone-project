@@ -33,8 +33,6 @@
 }
 
 .menu-item-options select {
-    background-color: black;
-    color: white;
     border: none;
     margin: 0px;
     outline: none;
@@ -50,8 +48,16 @@
     position: relative;
 }
 
+.select-size {
+    background-color: black;
+    color: white;
+}
+
 .select-qty {
     width: 115px;
+    height: 100%;
+    background-color: white;
+    color: black;
     display: inline-block;
 }
 

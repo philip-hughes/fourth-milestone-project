@@ -43,10 +43,35 @@ def menu(request):
             side_list.append(menu_item)
 
         if product.product_type == 'DESSERT':
-            dessert_list.append(product)
-        else:
-            drink_list.append(product)
-    print('sides list: ', side_list)
+            sizes = []
+            if product.small_price:
+                sizes.append({'price': str(product.small_price),
+                              'size': 'Small'})
+            if product.regular_price:
+                sizes.append({'price': str(product.regular_price),
+                              'size': 'Regular'})
+            if product.large_price:
+                sizes.append({'price': str(product.large_price),
+                              'size': 'Large'})
+            menu_item['product'] = product
+            menu_item['sizes'] = sizes
+            dessert_list.append(menu_item)
+
+        if product.product_type == 'DRINK':
+            sizes = []
+            if product.small_price:
+                sizes.append({'price': str(product.small_price),
+                              'size': 'Small'})
+            if product.regular_price:
+                sizes.append({'price': str(product.regular_price),
+                              'size': 'Regular'})
+            if product.large_price:
+                sizes.append({'price': str(product.large_price),
+                              'size': 'Large'})
+            menu_item['product'] = product
+            menu_item['sizes'] = sizes
+            print('side item test: ', menu_item)
+            drink_list.append(menu_item)
 
     context = {
         'pizzas': pizza_list,
