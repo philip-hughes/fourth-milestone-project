@@ -1,3 +1,34 @@
+#select-store-wrapper {
+    text-align: center;
+}
+
+#select-store-container {
+    display: inline-block;
+    width: 390px;
+    margin-top: 45px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+#select-store-container h4 {
+    margin-top: 9px;
+}
+
+#select-store-container form {
+    margin-bottom: 25px;
+}
+
+#select-store-container form button {
+    border: none;
+    height: 37px;
+    width: 45px;
+}
+
+#other-stores-container {
+    margin-bottom: 25px;
+}
+
 #search_input {
+    display: inline-block;
     max-width: 300px;
 }
+

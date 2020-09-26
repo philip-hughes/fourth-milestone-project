@@ -4,40 +4,44 @@
 <link rel="stylesheet" href="{% static 'select_store/css/select_store.css' %}">
 {% endblock %}
 {% block extra_js %}
-<script type="text/javascript" src="{% static '/js/search_address.js' %}"></script
+<script type="text/javascript" src="{% static '/js/search_address.js' %}"></script>
 {% endblock %}
 
 {% block content %}
-<h1>{{user.contact_number}}</h1>
-<!-- Autocomplete location search input --> 
-<form method="POST" action="{% url 'select_store' %}">
-{% csrf_token %}
-    <input type="text" name="test" value="test value">
-    <label>Location:</label>
-    <input name="customer_address" type="text" class="form-control" id="search_input" placeholder="Type address..." />
-    <button type="submit">Go</button>
-    <input name="lat" type="hidden" id="loc_lat" value=""/>
-    <input name="long" type="hidden" id="loc_long" value=""/>
+<div id="select-store-wrapper">
+    <div id="select-store-container">
+        <h4>Find a store</h4>
+        <form method="POST" action="{% url 'select_store' %}">
+        {% csrf_token %}
+            <input name="customer_address" type="text" class="form-control" id="search_input" placeholder="Type address..." />
+            <button type="submit">Go</button>
+            <input name="lat" type="hidden" id="loc_lat" value=""/>
+            <input name="long" type="hidden" id="loc_long" value=""/>
+        </form>
+        {% if nearby_stores %}
+        <h3>Nearby stores</h3>
+        {% for store in nearby_stores %}
+            <div id="nearby-stores-container">
+                <div>
+                    <span>{{store.name}}</span>
+                    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=True">Deliver</a>
+                    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=False">Collect</a>      
+                </div>
+            </div>                                            
+        {% endfor %}    
+        {% endif %}
+        {% if distant_stores %}
+        <h3>Other stores</h3>
+            {% for store in distant_stores %}
+            <div id="other-stores-container">    
+                <div>
+                    <span>{{store.name}}</span>
+                    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=False">Collect</a>      
+                </div>
+            </div>    
+            {% endfor %}    
+        {% endif %}
+    </div>
+</div>
 
-</form>
-{% if nearby_stores %}
-<h3>Nearby stores</h3>
-{% for store in nearby_stores %}
-    <div>
-        <span>{{store.name}}</span>    
-    </div>
-    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=True">Deliver</a>
-    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=False">Collect</a>
-    
-                                               
-{% endfor %}    
-{% endif %}
-{% if distant_stores %}
-<h3>Other stores</h3>
-{% for store in distant_stores %}
-    <div>
-        <span>{{store.name}}</span>    
-    </div>
-{% endfor %}    
-{% endif %}
 {% endblock %}
