@@ -1,7 +1,27 @@
 /***************Menu****************/
 
+html {
+  scroll-behavior: smooth;
+ }
+
 .menu-section-heading {
     text-align: center;
+}
+
+#section-button-wrapper {
+    text-align: center;
+}
+
+#section-button-wrapper a {
+    text-decoration: none;
+}
+
+.section-button {
+    display: inline-block;
+    height: 40px;
+    width: 160px;
+    background-color: blueviolet;
+    border: none;
 }
 
 .product-list {
