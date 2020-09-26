@@ -16,20 +16,25 @@
         <div class="col-12 col-md-6 col-lg-4 col-xl-3 menu-item-wrapper">
             <div class="menu-item">
                 <div class="menu-item-details">
-                    <img src="{{pizza.0.image_url}}">
-                    <span>{{ pizza.0.name }}</span>
+                    <img src="{{pizza.product.image_url}}">
+                    <span>{{ pizza.product.name }}</span>
                 </div>
                 <div class="menu-item-options">    
-                    <form class="form" action="{% url 'add_to_cart' pizza.0.sku %}" method="POST">
+                    <form class="form" action="{% url 'add_to_cart' pizza.product.sku %}" method="POST">
                     {% csrf_token %}                                        
-                        <select name="size_price">
-                            <option value='{ "size": "small", "price":"{{pizza.0.small_price}}" }'>Small {{pizza.0.small_price}}</option>
-                            <option value='{ "size": "medium", "price":"{{pizza.0.medium_price}}" }'>Medium {{pizza.0.medium_price}}</option>
-                            <option value='{ "size": "large", "price":"{{pizza.0.large_price}}" }'>Large {{pizza.0.large_price}}</option>
+                    {% if side.sizes|length == 1%}
+                        <input type="hidden" value='{ "size": "{{pizza.sizes.0.size}}", "price":"{{pizza.sizes.0.price}}" }' name="size_price">
+                        <span>{{pizza.sizes.0.price}}</span>
+                    {% else %}
+                        <select class="select-size" name="size_price">
+                        {% for size in pizza.sizes %}
+                            <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>{{size.size}} {{size.price}}</option>
+                        {% endfor %}
                         </select>
+                    {% endif %}
+                        <input type="submit" class="pizza-item-submit" value="ADD TO CART">  
                         <input type="hidden"  name="product_type" value={{pizza.0.product_type}}>
-                        <input type="hidden"  name="quantity" value="1">
-                        <input type="submit" class="item-submit" value="Add">   
+                        <input type="hidden"  name="quantity" value="1"> 
                     </form>
                 </div>
             </div>    

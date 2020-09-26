@@ -73,3 +73,13 @@
     padding: 0px;
     border: 0px;
 }
+
+.pizza-item-submit {
+    display: block;
+    width: 230px;
+    height: 34px;
+    outline: none;
+    font-size: 12px;
+    padding: 0px;
+    border: 0px;
+}
