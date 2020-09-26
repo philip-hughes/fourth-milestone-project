@@ -23,9 +23,9 @@
         {% for store in nearby_stores %}
             <div id="nearby-stores-container">
                 <div>
-                    <span>{{store.name}}</span>
-                    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=True">Deliver</a>
-                    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=False">Collect</a>      
+                    <span class="store-name">{{store.name}}</span>
+                    <a class="deliver-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=True"><span>Deliver</span></a>
+                    <a class="collect-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=False"><span>Collect</span></a>      
                 </div>
             </div>                                            
         {% endfor %}    
@@ -35,8 +35,8 @@
             {% for store in distant_stores %}
             <div id="other-stores-container">    
                 <div>
-                    <span>{{store.name}}</span>
-                    <a class="text-muted" href="{% url 'select_store' %}?store={{store.id}}&delivery=False">Collect</a>      
+                    <span class="store-name">{{store.name}}</span>
+                    <a class="collect-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=False"><span>Collect<span></a>      
                 </div>
             </div>    
             {% endfor %}    

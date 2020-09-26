@@ -13,6 +13,10 @@
     margin-top: 9px;
 }
 
+#select-store-container a {
+    text-decoration: none;
+}
+
 #select-store-container form {
     margin-bottom: 25px;
 }
@@ -32,3 +36,18 @@
     max-width: 300px;
 }
 
+.deliver-link, .collect-link {
+    display: inline-block;
+    height: 40px;
+    width: 110px;
+    color: white;
+    border: 0;
+}
+
+.deliver-link {
+    background-color: green;
+}
+
+.collect-link {
+    background-color: blue;
+}
