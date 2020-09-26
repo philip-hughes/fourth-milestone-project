@@ -19,27 +19,30 @@
                     <input type="hidden" name="product-id" value={{item.product_id}}>
                     <input type="hidden" name="item-index" value={{forloop.counter0}}>
                     <input type="hidden" class="adjust-type" name="adjust-type" value>
-                    <button class="adjust-cart increase"><i class="fas fa-plus"></i></button>
-                    <button class="adjust-cart remove"><i class="far fa-trash-alt"></i></button>
+                    <div class="adjust-wrapper">
+                        <input type="hidden" class="adjust-type" name="adjust-type" value>
+                        <button class="adjust-cart increase"><i class="fas fa-plus"></i></button>
+                        <button class="adjust-cart remove"><i class="far fa-trash-alt"></i></button>
+                    </div>  
                 </form>  
             </div>
             <hr>
             {% else %}
             <div class="cart-item-wrapper">
-                <div>
-                    <img src="{{item.product.image_url}}">
-                    <span class="cart-item-name">{{item.product.name}} x{{item.quantity}}</span>
-                    <span class="sub-total">€{{item.sub_total}}</span>
-                </div>
+                <img src="{{item.product.image_url}}">
+                <span class="cart-item-name">{{item.product.name}} x{{item.quantity}}</span>
+                <span class="sub-total">€{{item.sub_total}}</span>
                 <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
                 {% csrf_token %} 
                     <input type="hidden" name="product-type" value={{item.product_type}}>
                     <input type="hidden" name="product-id" value={{item.product_id}}>
                     <input type="hidden" name="item-index" value={{forloop.counter0}}>
-                    <input type="hidden" class="adjust-type" name="adjust-type" value>
-                    <button class="adjust-cart increase"><i class="fas fa-plus"></i></button>
-                    <button class="adjust-cart decrease"><i class="fas fa-minus"></i></button>
-                    <button class="adjust-cart remove"><i class="far fa-trash-alt"></i></button>
+                    <div class="adjust-wrapper">
+                        <input type="hidden" class="adjust-type" name="adjust-type" value>
+                        <button class="adjust-cart increase"><i class="fas fa-plus"></i></button>
+                        <button class="adjust-cart decrease"><i class="fas fa-minus"></i></button>
+                        <button class="adjust-cart remove"><i class="far fa-trash-alt"></i></button>
+                    </div>    
                 </form>  
             </div>
             <hr>

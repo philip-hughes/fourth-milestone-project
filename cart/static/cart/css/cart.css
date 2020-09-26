@@ -33,6 +33,18 @@
     top: 8px;
 }
 
+.adjust-wrapper {
+    position: absolute;
+    bottom: 8px;
+    right: 11px;
+}
+
+.adjust-wrapper button {
+    border: none;
+}
+
+
+
 hr {
     width: 750px;
     margin: 0;
