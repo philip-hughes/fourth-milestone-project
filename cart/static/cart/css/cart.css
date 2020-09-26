@@ -1,0 +1,39 @@
+#cart-wrapper {
+    text-align: center;
+}
+
+#cart-items {
+    display: inline-block;
+    width: 900px;
+    background-color: #e9ecef;
+}
+
+.cart-item-wrapper {
+    position: relative;
+    height: 85px;
+}
+
+.cart-item-wrapper img {
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    height: 70px;
+    width: 70px;
+}
+
+.cart-item-name {
+    position: absolute;
+    left: 90px;
+    top: 8px;
+}
+
+.sub-total {
+    position: absolute;
+    right: 11px;
+    top: 8px;
+}
+
+hr {
+    width: 750px;
+    margin: 0;
+}
