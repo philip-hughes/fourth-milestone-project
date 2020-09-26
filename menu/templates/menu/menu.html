@@ -66,14 +66,16 @@
                             <option value='{ "size": "{{size.size}}", "price":"{{size.price}}" }'>Medium {{size.price}}</option>
                         {% endfor %}
                         </select>
-                    {% endif %}                                            
-                        <select name="quantity">
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                        </select>
-                        <input type="hidden"  name="product_type" value={{side.product_type}}>
-                        <input type="submit" class="item-submit" value="Add">   
+                    {% endif %}
+                        <div class="qty-wrapper">                                            
+                            <select class="select-qty" name="quantity">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                            </select>                        
+                            <input type="submit" class="item-submit" value="ADD TO CART">
+                        </div>
+                        <input type="hidden"  name="product_type" value={{side.product_type}}>   
                     </form>
                 </div>
             </div>    
