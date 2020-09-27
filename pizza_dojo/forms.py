@@ -7,9 +7,11 @@ class CustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
         super(CustomSignupForm, self).__init__(*args, **kwargs) 
         self.auto_id = '%s'
+       
+        print('form fields: ', self.field_order)
     first_name = forms.CharField(max_length=30, label='First Name')
     contact_number = forms.CharField(max_length=20, label='Contact number')
-    search_input = forms.CharField(max_length=200, label='Search input' )
+    search_input = forms.CharField(max_length=200, label='Address' )
     loc_lat = forms.CharField(widget=forms.HiddenInput())
     loc_long = forms.CharField(widget=forms.HiddenInput())
 

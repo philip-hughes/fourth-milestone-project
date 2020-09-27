@@ -15,6 +15,48 @@
     top: 15px;
 }
 
+/**********Sign up*****************/
+.signup-wrapper {
+    
+}
+
+.form-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 500px;
+    margin-bottom: 40px;
+    background-color: #e9ecef;
+}
+
+.form-wrapper h1 {
+    text-align: center;
+}
+
+.form-input-wrapper {
+    position: relative;
+    margin: 0 auto;
+    width: 450px;
+}
+.form-input label, .form-input input {
+    display: block;
+}
+
+.form-input input {
+    width: 420px;
+    height: 30px;
+    margin-bottom: 8px;
+}
+.form-input label {
+    font-weight: 500;
+    margin-bottom: 0;
+}
+
+.form-wrapper button {
+    position: absolute;
+    right: 5px;
+    border: none;
+}
+
 .menu-section-heading {
     text-align: center;
 }

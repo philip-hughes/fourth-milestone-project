@@ -8,18 +8,41 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<h1>{% trans "Sign Up" %}</h1>
+<div class="signup-wrapper">
+    <div class="form-wrapper">
+        <h1>{% trans "Sign Up" %}</h1>
+        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+            {% csrf_token %}
+            <div class="form-input-wrapper">
+                <div class="form-input">
+                    <label for="first_name">First name</label>
+                    {{ form.first_name }}
+                </div>
+                <div class="form-input">
+                    <label for="contact_number">Contact number</label>
+                    {{ form.contact_number }}
+                </div>
+                <div class="form-input">
+                    <label for="email">Email</label>
+                    {{ form.email }}
+                </div>
+                <div class="form-input">
+                    <label for="search_input">Address</label>
+                    {{ form.search_input }}
+                </div>
+                <div class="form-input">
+                    <label for="search_input">Password</label>
+                    {{ form.password1 }}
+                </div>                            
+            </div>
 
-<p>{% blocktrans %}Already have an account? Then please <a href="{{ login_url }}">sign in</a>.{% endblocktrans %}</p>
+            {% if redirect_field_value %}
+            <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+            {% endif %} 
+            <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+        </form>
+    </div>
+</div>
 
-<form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
-  {% csrf_token %}
-  {{ form.as_p }}
-  {% if redirect_field_value %}
-  <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
-  {% endif %}
-  
-  <button type="submit">{% trans "Sign Up" %} &raquo;</button>
-</form>
 
 {% endblock %}
