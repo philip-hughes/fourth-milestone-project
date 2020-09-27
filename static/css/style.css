@@ -36,6 +36,7 @@
     position: relative;
     margin: 0 auto;
     width: 450px;
+    padding-bottom: 10px;
 }
 .form-input label, .form-input input {
     display: block;
