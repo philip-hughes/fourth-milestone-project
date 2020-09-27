@@ -5,24 +5,30 @@
 {% endblock %}
 
 {% block content %}
-<h1>Checkout screen</h1>
-<div>Total: {{total}}</div>
-<div id="card-element"></div>
-<form id='payment-form' action="{% url 'checkout' %}" method="POST">
-    {% csrf_token %}
-    {{ order_form.name }}
-    {{ order_form.email }}
-    {{ order_form.phone_number }}
-    {{ order_form.street_address1 }}
-    {{ order_form.street_address2  }}
-    {{ order_form.county }}
-    {{ order_form.order_total }}
-    <input type='submit' value='Submit payment'>
-</form>
+<div id="checkout-wrapper">
+    <div id="checkout-details">
+        <h4>MY DETAILS</h4>
+        <form id='payment-form' action="{% url 'checkout' %}" method="POST">
+        {% csrf_token %}
+        {{ order_form.name }}
+        {{ order_form.email }}
+        {{ order_form.phone_number }}
+        {{ order_form.street_address1 }}
+        {{ order_form.street_address2  }}
+        {{ order_form.county }}
+        {{ order_form.order_total }}
+        <input type='submit'>Submit</input>        
+        </form>
+        <div id="card-element"></div>
+        <div>Total: {{total}}</div>
+        <button id="submit-payment">CONFIRM PAYMENT</button>
+    </div>
+</div>
 {% endblock %}
 
 {% block postloadjs %}
 {{ stripe_public_key|json_script:"id_stripe_public_key" }}
 {{ client_secret|json_script:"id_client_secret" }}
 <script src="{% static 'checkout/js/stripe_elements.js' %}"></script>
+<script type="text/javascript" src="{% static 'checkout/js/checkout.js' %}"></script>
 {% endblock %}
