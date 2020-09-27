@@ -5,6 +5,7 @@
 #cart-items {
     display: inline-block;
     width: 900px;
+    margin-bottom: 40px;
     background-color: #e9ecef;
 }
 
@@ -41,6 +42,28 @@
 
 .adjust-wrapper button {
     border: none;
+}
+
+#checkout-now {
+    position: relative;
+    height: 100px;
+    background-color: white;
+}
+
+#checkout-now a {
+    position: absolute;
+    height: 40px;
+    width: 110px;
+    right: 11px;
+    bottom: 10px;
+    background-color: green;
+    border: 0;
+}
+
+#grand-total {
+    position: absolute;
+    right: 11px;
+    top: 5px;
 }
 
 

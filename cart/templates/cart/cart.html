@@ -4,7 +4,6 @@
 <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
 {% endblock %}
 {% block content %}
-<a href="{% url 'checkout' %}">Checkout</a>
 <div id="cart-wrapper">
     <div id="cart-items">
         {% for item in cart_items %}
@@ -48,8 +47,12 @@
             <hr>
             {% endif %}
         {% endfor %}
+        <div id="checkout-now">
+            <span id="grand-total">Total: €{{grand_total}}</span>
+            <a href="{% url 'checkout' %}">Checkout</a>
+        </div>
+        
     </div>
-    <span>Total: {{grand_total}}</span>
 </div>
 
 {% endblock %}
