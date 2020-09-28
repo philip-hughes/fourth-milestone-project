@@ -104,7 +104,6 @@ html {
     font-size: 12px;
     padding: 0px;
     border: 0px;
-    background-color: #8cbc24
 }
 
 .pizza-item-submit {
@@ -115,5 +114,10 @@ html {
     font-size: 12px;
     padding: 0px;
     border: 0px;
-    background-color: #9ad910
+}
+
+.item-submit, .pizza-item-submit {
+    color: white;
+    background-color: #9ad910;
+    font-weight: bold;
 }
