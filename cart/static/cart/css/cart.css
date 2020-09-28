@@ -26,8 +26,7 @@
 .cart-item-name {
     position: absolute;
     left: 90px;
-    top: 8px;
-    
+    top: 8px;   
 }
 
 .increase {
@@ -59,13 +58,15 @@
     background-color: white;
 }
 
-#checkout-now a {
+#checkout-now button {
     position: absolute;
     height: 40px;
     width: 110px;
     right: 11px;
     bottom: 10px;
-    background-color: green;
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    background-color: #27a5ef;
     border: 0;
 }
 
