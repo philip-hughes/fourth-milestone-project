@@ -1,8 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Permanent+Marker');
+
+/**************Header***********/
 #top-header {
     position: relative;
     height: 80px;
-    background-color:blueviolet;
+    border-bottom: 2px solid black;
+} 
+
+#title-wrapper {
+    position: relative;
+    width: 299px;
+    height: 100%;
+    margin: 0 auto;
 }
+
+#logo-img, #main-title  {
+    display: inline-block;
+}
+
+#main-title {
+    position: absolute;
+    top: 6px;
+    right: 34px;
+    font-family: 'Permanent Marker', cursive;
+}
+
+ #logo-img  {
+    position: absolute;
+    top: 12px;
+}
+
+#title-wrapper img {
+    max-height: 40px;
+    max-width: 40px;
+}
+
+
 
 #main-title {
     text-align: center;

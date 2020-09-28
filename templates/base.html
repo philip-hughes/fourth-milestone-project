@@ -29,7 +29,11 @@
 <body>
     <header>
         <div id="top-header">
-            <h1 id="main-title">PIZZA DOJO</h1>
+            <div id="title-wrapper">
+                <img id="logo-img" src="/media/dojo-logo.jpg">
+                <h1 id="main-title" >Pizza Dojo</h1>
+            </div>
+            
             {% if request.user.is_authenticated %}
             <div id="auth-user-links">
                 <a href="{% url 'profile' %}"><span>Blah{{user.first_name}}</span></a>
