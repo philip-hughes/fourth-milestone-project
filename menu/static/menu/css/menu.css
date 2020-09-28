@@ -16,14 +16,22 @@ html {
     text-decoration: none;
 }
 
-.section-link {
+.section-link button {
     display: inline-block;
     height: 40px;
     width: 160px;
-    background-color: blueviolet;
+    background-color: black;
     border: none;
     margin: -3px;
- 
+    color: white;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.section-link button:hover {
+    background-color: white;
+    color: red;
+    border: 1px solid black;
+
 }
 
 .product-list {
