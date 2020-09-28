@@ -6,12 +6,13 @@
     display: inline-block;
     width: 900px;
     margin-bottom: 40px;
-    background-color: #e9ecef;
+    background-color: white;
 }
 
 .cart-item-wrapper {
     position: relative;
     height: 85px;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .cart-item-wrapper img {
@@ -26,8 +27,16 @@
     position: absolute;
     left: 90px;
     top: 8px;
+    
 }
 
+.increase {
+    background-color: #afe737;
+}
+
+.decrease {
+    background-color: #d3d3e1;
+}
 .sub-total {
     position: absolute;
     right: 11px;
