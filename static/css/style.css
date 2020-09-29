@@ -47,7 +47,12 @@
     top: 15px;
 }
 
+#bottom-header {
+    text-align: center;
+}
+
 #nav-link-wrapper {
+    display: inline-block;
     max-width: 810px;
     margin: 1px auto 5px auto
 }
