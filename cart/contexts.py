@@ -7,8 +7,10 @@ def cart_contents(request):
     store_id = request.session.get('store', None)
     if store_id:
         store = get_object_or_404(Store, pk=store_id)
+        store_name = store.name.split('- ')[1]
     else:
         store = None
+        store_name = None
     cart_items = []
     grand_total = 0
     cart = request.session.get('cart', [])
@@ -40,6 +42,7 @@ def cart_contents(request):
         'cart_items': cart_items,
         'grand_total': format(grand_total, '.2f'),
         'store': store,
+        'store_name': store_name
         }
     print('context:', context)
     return context

@@ -28,6 +28,7 @@
 </head>
 <body>
     <header>
+        <a href="{% url 'flush_session' %}">Flush session</a>
         <div id="top-header">
             <div id="title-wrapper">
                 <img id="logo-img" src="/media/dojo-logo.jpg">
@@ -49,7 +50,7 @@
         {% if store %}
         <div id="bottom-header">
             <div id="nav-link-wrapper">
-                <a class="nav-link" href="{% url 'select_store' %}"><button><i class="fas fa-map-marker-alt"></i> {{store.name}}</button></a>
+                <a class="nav-link" href="{% url 'select_store' %}"><button><i class="fas fa-map-marker-alt"></i> {{store_name}}</button></a>
                 <a class="nav-link" href="{% url 'menu' %}"><button>Menu</button></a>
                 <a class="nav-link" href="{% url 'view_cart' %}"><button>Total: €{{grand_total}}</button></a>
             </div>

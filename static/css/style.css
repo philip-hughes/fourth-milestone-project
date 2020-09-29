@@ -48,7 +48,7 @@
 }
 
 #nav-link-wrapper {
-    width: 810px;
+    max-width: 810px;
     margin: 1px auto 5px auto
 }
 
