@@ -72,6 +72,12 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+@media(max-width:810px){
+    .nav-link button {
+        width: 33.3vw;
+        }
+}
+
 /**********Forms*****************/
 
 .form-wrapper {
