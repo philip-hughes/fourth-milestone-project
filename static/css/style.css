@@ -72,7 +72,7 @@
     font-family: 'Montserrat', sans-serif;
 }
 
-/**********Sign up*****************/
+/**********Forms*****************/
 
 .form-wrapper {
     position: relative;
@@ -112,11 +112,13 @@
     border: none;
 }
 
+input:invalid {
+  border: 1px solid #fa755a;
+}
+
 .menu-section-heading {
     text-align: center;
 }
-
-
 
 .store-name {
     display: block;

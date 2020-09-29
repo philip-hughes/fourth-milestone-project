@@ -6,21 +6,40 @@
 
 {% block content %}
 <div id="checkout-wrapper">
-    <div id="checkout-details">
-        <h4>MY DETAILS</h4>
+    <div class="form-wrapper">
+        <h1>MY DETAILS</h1>
         <form id='payment-form' action="{% url 'checkout' %}" method="POST">
-        {% csrf_token %}
-        {{ order_form.name }}
-        {{ order_form.email }}
-        {{ order_form.phone_number }}
-        {{ order_form.street_address1 }}
-        {{ order_form.street_address2  }}
-        {{ order_form.county }}
-        {{ order_form.order_total }}
-        <input type='submit'>Submit</input>        
+            {% csrf_token %}
+            <div class="form-input-wrapper">
+                <div class="form-input">
+                    <label for="first_name">Name</label>
+                    {{ order_form.name }}
+                </div>
+                <div class="form-input">
+                    <label for="email">Email</label>
+                    {{ order_form.email }}
+                </div>
+                <div class="form-input">
+                    <label for="phone_number">Contact Number</label>
+                    {{ order_form.phone_number }}
+                </div>
+                <div class="form-input">
+                    <label for="street_address1">Address 1</label>
+                    {{ order_form.street_address1 }}
+                </div>
+                <div class="form-input">
+                    <label for="street_address2">Address 2</label>
+                    {{ order_form.street_address2  }}
+                </div>
+                <div class="form-input">
+                    <label for="county">County</label>
+                    {{ order_form.county }}
+                </div>                    
+            </div>
+        {{ order_form.order_total }}                  
         </form>
         <div id="card-element"></div>
-        <div>Total: {{total}}</div>
+        <div>Total: {{grand_total}}</div>
         <button id="submit-payment">CONFIRM PAYMENT</button>
     </div>
 </div>
