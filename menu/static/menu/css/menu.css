@@ -46,6 +46,7 @@ html {
 
 .menu-item-wrapper {
     position: relative;
+    margin-bottom: 15px;
 }
 
 .menu-item {
