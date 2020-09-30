@@ -20,12 +20,13 @@
     margin-top: 9px;
 }
 
-#select-store-container a {
+#select-store-container  {
     text-decoration: none;
+    min-height: 450px;
 }
 
 #select-store-container form {
-    margin-bottom: 25px;
+    margin-bottom: 6px;
 }
 
 #select-store-container form button {
@@ -41,6 +42,11 @@
 #search_input {
     display: inline-block;
     max-width: 300px;
+}
+
+#ss-logo-img {
+    max-height: 180px;
+    max-width: 180px;
 }
 
 .deliver-link button, .collect-link button {

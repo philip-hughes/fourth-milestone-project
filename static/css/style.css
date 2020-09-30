@@ -38,12 +38,10 @@ header {
  #logo-img  {
     position: absolute;
     top: 12px;
-}
-
-#title-wrapper img {
     max-height: 40px;
     max-width: 40px;
 }
+
 
 #main-title {
     text-align: center;
