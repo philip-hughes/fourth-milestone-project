@@ -10,11 +10,14 @@ $(document).ready(function () {
     });
 	
     google.maps.event.addListener(autocomplete, 'place_changed', function (e) {
-        if (event.keyCode != 13){
+            console.log("setting lat long")
             var near_place = autocomplete.getPlace();
-            document.getElementById('loc_lat').value = near_place.geometry.location.lat();
-            document.getElementById('loc_long').value = near_place.geometry.location.lng();
-        }
-
+            try {
+                document.getElementById('loc_lat').value = near_place.geometry.location.lat();
+                document.getElementById('loc_long').value = near_place.geometry.location.lng();
+            }
+            catch {
+                console.log('Invalid addresss')
+            }
     });
 });

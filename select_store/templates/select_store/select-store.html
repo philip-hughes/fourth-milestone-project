@@ -21,6 +21,10 @@
             <input name="long" type="hidden" id="loc_long" value=""/>
         </form>
         <img id="ss-logo-img" src="/media/dojo-logo.jpg">
+        {% if invalid_address %}
+            <div>Invalid address</div>
+        {% endif %}
+
         {% if nearby_stores %}
         <h4>Nearby stores</h4>
         {% for store in nearby_stores %}
