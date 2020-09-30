@@ -4,14 +4,27 @@ html {
   scroll-behavior: smooth;
  }
 
+ #menu-wrapper {
+     padding-top: 34px;
+ }
+
 .menu-section-heading {
     text-align: center;
     font-family: 'Permanent Marker', cursive;
     color: #d33131;
 }
 
-#section-link-wrapper{
+section {
+    scroll-margin-top: 188px;
+}
+
+#section-link-container{
     text-align: center;
+    background-color: white;
+    position: fixed;
+    top: 154px;
+    z-index: 1;
+    width: 100vw;
 }
 
 #section-link-wrapper a {

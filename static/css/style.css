@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700');
 
 /**************Header***********/
+
+header {
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    background-color: white;
+    width: 100vw;
+}
+
 #top-header {
     position: relative;
     height: 80px;
@@ -81,6 +90,10 @@
     .nav-link button {
         width: 33.3vw;
         }
+}
+
+.content-wrapper {
+    padding-top: 154px;
 }
 
 /**********Forms*****************/

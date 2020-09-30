@@ -8,24 +8,27 @@
 {% endblock %}
 
 {% block content %}
-<div id='section-link-wrapper'>
-    <div>
-        <a class="section-link" href="#pizza-section">
-            <button>Pizzas</button>
-        </a>
-        <a class="section-link" href="#side-section">
-            <button>Sides</button>
-        </a>
-        <a class="section-link" href="#dessert-section">
-            <button>Desserts</button>
-        </a>
-        <a class="section-link" href="#drink-section">
-            <button>Drinks</button>
-        </a>
-</div>
+<div id="section-link-container">
+    <div id='section-link-wrapper'>
+        <div>
+            <a class="section-link" href="#pizza-section">
+                <button>Pizzas</button>
+            </a>
+            <a class="section-link" href="#side-section">
+                <button>Sides</button>
+            </a>
+            <a class="section-link" href="#dessert-section">
+                <button>Desserts</button>
+            </a>
+            <a class="section-link" href="#drink-section">
+                <button>Drinks</button>
+            </a>
+        </div>
+    </div>
 </div>
 
-<section id="pizza-section">
+<div id="menu-wrapper">
+    <section id="pizza-section">
     <h1 class="menu-section-heading">Pizzas</h1>
     <div class="row no-gutters product-list">
         {% for pizza in pizzas %}
@@ -182,5 +185,7 @@
         {% endfor %}
     </div>        
 </section>
+</div>
+
 {% endblock %}
 
