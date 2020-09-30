@@ -1,15 +1,17 @@
 #select-store-wrapper {
     text-align: center;
+    font-family: 'Montserrat', sans-serif;
 }
 
 #select-store-container {
     display: inline-block;
     width: 390px;
     margin-top: 45px;
+    margin-bottom: 20px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
 }
 
-#select-store-container h4 {
+#select-store-heading {
     margin-top: 9px;
 }
 
@@ -36,18 +38,12 @@
     max-width: 300px;
 }
 
-.deliver-link, .collect-link {
+.deliver-link button, .collect-link button {
     display: inline-block;
     height: 40px;
     width: 110px;
-    color: white;
-    border: 0;
-}
-
-.deliver-link {
-    background-color: green;
-}
-
-.collect-link {
-    background-color: blue;
+    border: 1px black solid;
+    font-family: 'Permanent Marker', cursive;
+    background-color: white;
+    color: red;
 }

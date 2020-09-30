@@ -10,7 +10,7 @@
 {% block content %}
 <div id="select-store-wrapper">
     <div id="select-store-container">
-        <h4>Find a store</h4>
+        <h3 id="select-store-heading">Find a store</h3>
         <form method="POST" action="{% url 'select_store' %}">
         {% csrf_token %}
             <input name="customer_address" type="text" class="form-control" id="search_input" placeholder="Type address..." />
@@ -19,24 +19,24 @@
             <input name="long" type="hidden" id="loc_long" value=""/>
         </form>
         {% if nearby_stores %}
-        <h3>Nearby stores</h3>
+        <h4>Nearby stores</h4>
         {% for store in nearby_stores %}
             <div id="nearby-stores-container">
                 <div>
                     <span class="store-name">{{store.name}}</span>
-                    <a class="deliver-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=True"><span>Deliver</span></a>
-                    <a class="collect-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=False"><span>Collect</span></a>      
+                    <a class="collect-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=False"><button>Collect</button></a>  
+                    <a class="deliver-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=True"><button>Deliver</button></a>    
                 </div>
             </div>                                            
         {% endfor %}    
         {% endif %}
         {% if distant_stores %}
-        <h3>Other stores</h3>
+        <h4>Other stores</h4>
             {% for store in distant_stores %}
             <div id="other-stores-container">    
                 <div>
                     <span class="store-name">{{store.name}}</span>
-                    <a class="collect-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=False"><span>Collect<span></a>      
+                    <a class="collect-link" href="{% url 'select_store' %}?store={{store.id}}&delivery=False"><button>Collect</button></a>      
                 </div>
             </div>    
             {% endfor %}    
