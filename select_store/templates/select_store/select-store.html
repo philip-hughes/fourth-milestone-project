@@ -4,7 +4,9 @@
 <link rel="stylesheet" href="{% static 'select_store/css/select_store.css' %}">
 {% endblock %}
 {% block extra_js %}
+<script type="text/javascript" src="{% static 'select_store/js/select_store.js' %}"></script>
 <script type="text/javascript" src="{% static '/js/search_address.js' %}"></script>
+
 {% endblock %}
 
 {% block content %}
@@ -14,7 +16,7 @@
         <form method="POST" action="{% url 'select_store' %}">
         {% csrf_token %}
             <input name="customer_address" type="text" class="form-control" id="search_input" placeholder="Type address..." />
-            <button type="submit">Go</button>
+            <button id="submit-address-button" type="submit">Go</button>
             <input name="lat" type="hidden" id="loc_lat" value=""/>
             <input name="long" type="hidden" id="loc_long" value=""/>
         </form>
