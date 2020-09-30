@@ -148,3 +148,9 @@ input:invalid {
     display: block;
     margin-bottom: 5px;
 }
+
+/*********************Footer***********************/
+footer {
+    height: 200px;
+    background-color: black;
+}
