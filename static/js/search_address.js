@@ -15,9 +15,20 @@ $(document).ready(function () {
             try {
                 document.getElementById('loc_lat').value = near_place.geometry.location.lat();
                 document.getElementById('loc_long').value = near_place.geometry.location.lng();
+                $('#change-address-button').removeAttr('hidden')
+                $('#search_input').prop('disabled', true)
+                
             }
             catch {
                 console.log('Invalid addresss')
             }
     });
+    $('#change-address-button').click(function(){
+                $('#loc_lat').val("")
+                $('#loc_long').val("")
+                $('#change-address-button').prop('hidden', true)
+                $('#search_input').prop('disabled', false).val("")
+    });
+
 });
+
