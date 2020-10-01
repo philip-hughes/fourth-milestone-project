@@ -35,6 +35,8 @@
                     {{ form.password1 }}
                 </div>                            
             </div>
+            {{ form.loc_lat }}
+            {{ form.loc_long }}
 
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />

@@ -19,11 +19,8 @@ def select_store(request):
     if request.POST:
         latitude = request.POST['lat']
         longitude = request.POST['long']
-        print("lat long:....", latitude, longitude)
         if latitude and longitude:
             customer_address = request.POST['customer_address'].split(',')
-            print('lat long: ', latitude, longitude,
-                'addresss: ', customer_address)
             customer_address = {
                 "street_address1": customer_address[0],
                 "street_address2": customer_address[1],
@@ -50,7 +47,6 @@ def select_store(request):
             }
             return render(request, 'select_store/select-store.html', context)
         else:
-            print('invalid address................')
             context = {
                 "invalid_address": True
             }
