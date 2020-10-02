@@ -21,6 +21,7 @@ def select_store(request):
         longitude = request.POST['long']
         if latitude and longitude:
             customer_address = request.POST['customer_address'].split(',')
+            print('customer address: ', customer_address)
             customer_address = {
                 "street_address1": customer_address[0],
                 "street_address2": customer_address[1],

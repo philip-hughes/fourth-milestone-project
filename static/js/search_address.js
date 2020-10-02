@@ -20,7 +20,7 @@ $(document).ready(function () {
       document.getElementById('loc_long').value = near_place.geometry.location.lng();
       $("#address-error").prop("hidden", true);
       $("#change-address-button").removeAttr("hidden");
-      $("#search_input").prop("disabled", true);
+      $("#signup_form #search_input").prop("disabled", true);
     } catch {
       console.log("Invalid addresss");
     }
@@ -29,7 +29,7 @@ $(document).ready(function () {
     $("#loc_lat").val("");
     $("#loc_long").val("");
     $("#change-address-button").prop("hidden", true);
-    $("#search_input").prop("disabled", false).val("");
+    $("#signup_form #search_input").prop("disabled", false).val("");
   });
 
   $("#signup-submit").click(function (e) {
