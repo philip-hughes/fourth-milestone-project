@@ -30,11 +30,16 @@
                     <label for="search_input">Address</label>
                     {{ form.search_input }}
                 </div>
+                <span hidden id="address-error">Please choose a valid address</span>
                 <button id="change-address-button" hidden >Change</button>
                 <div class="form-input">
-                    <label for="search_input">Password</label>
+                    <label for="password1">Password</label>
                     {{ form.password1 }}
-                </div>                            
+                </div>
+                    <div class="form-input">
+                    <label for="password2">Confirm password</label>
+                    {{ form.password2 }}
+                </div>                              
             </div>
             {{ form.loc_lat }}
             {{ form.loc_long }}
@@ -42,7 +47,7 @@
             {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
             {% endif %} 
-            <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+            <button id="signup-submit" type="submit">{% trans "Sign Up" %} &raquo;</button>
         </form>
     </div>
 </div>
