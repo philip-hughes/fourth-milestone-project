@@ -24,5 +24,6 @@
         }   
 
         $('.item-submit').scrollPosReaload();
+        
     });
 }(jQuery));  

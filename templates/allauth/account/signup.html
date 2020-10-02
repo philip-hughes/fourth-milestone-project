@@ -11,7 +11,7 @@
 <div class="signup-wrapper">
     <div class="form-wrapper">
         <h1>{% trans "Sign Up" %}</h1>
-        <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+        <form class="signup" id="signup_form" method="post" autocomplete="no" action="{% url 'account_signup' %}">
             {% csrf_token %}
             <div class="form-input-wrapper">
                 <div class="form-input">
@@ -28,8 +28,9 @@
                 </div>
                 <div class="form-input">
                     <label for="search_input">Address</label>
-                    {{ form.search_input }}
+                    <input type="text" name="search_input" required id="search_input" class="pac-target-input" placeholder="Enter your address" autocomplete="no">
                 </div>
+
                 <span hidden id="address-error">Please choose a valid address</span>
                 <button id="change-address-button" hidden >Change</button>
                 <div class="form-input">
@@ -51,6 +52,7 @@
         </form>
     </div>
 </div>
-
+{% block postloadjs %}
+{% endblock %}
 
 {% endblock %}
