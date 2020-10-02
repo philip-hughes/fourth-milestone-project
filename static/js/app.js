@@ -16,6 +16,13 @@
         return false;
     }
     $(document).ready(function() {
+        if ( $( "#bottom-header" ).length ) {
+                $(".content-wrapper").css('padding-top', '153px')
+            }
+        else {
+                $(".content-wrapper").css('padding-top', '103px')
+        }   
+
         $('.item-submit').scrollPosReaload();
     });
 }(jQuery));  
