@@ -24,12 +24,23 @@ var form = document.getElementById('payment-form');
 
 /*Handle form submit*/
 form.addEventListener('submit', function(ev) {
+  console.log('county' + form.county.value)
   ev.preventDefault();
   card.update({'disabled': true});
   $('#submit-button').attr('disabled', true)
   stripe.confirmCardPayment(clientSecret, {
     payment_method: {
-      card: card
+      card: card,
+      billing_details: {
+        name: $.trim(form.name.value),
+        phone: $.trim(form.phone_number.value),
+        email: $.trim(form.email.value),
+        address: {
+            line1:$.trim(form.street_address1.value),
+            line2:$.trim(form.street_address2.value),
+            state:$.trim(form.county.value),
+        }
+    },
     }
   }).then(function(result) {
     if (result.error) {
@@ -37,6 +48,7 @@ form.addEventListener('submit', function(ev) {
       card.update({'disabled': false});
       $('#submit-button').attr('disabled', false)
       console.log(result.error.message);
+      
     } else {
       // The payment has been processed!
       if (result.paymentIntent.status === 'succeeded') {
@@ -45,7 +57,9 @@ form.addEventListener('submit', function(ev) {
         // execution. Set up a webhook or plugin to listen for the
         // payment_intent.succeeded event that handles any business critical
         // post-payment actions.
+        console.log('request succeeeded now submit form')
         form.submit();
+
       }
     }
   });

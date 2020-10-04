@@ -10,6 +10,7 @@
         <h1>MY DETAILS</h1>
         <form id='payment-form' action="{% url 'checkout' %}" method="POST">
             {% csrf_token %}
+            <input type="hidden" value="{{ pid }}" name="pid">
             <div class="form-input-wrapper">
                 <div class="form-input">
                     <label for="first_name">Name</label>

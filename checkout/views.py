@@ -26,7 +26,7 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
-
+        print('PID: ', request.POST['pid'] )
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
@@ -34,6 +34,7 @@ def checkout(request):
             order.store = get_object_or_404(Store, pk=store_id)
             order.delivery = request.session['delivery']
             order.order_total = cart['grand_total']
+            order.stripe_pid = request.POST['pid']
             order.user = request.user
             order.save()
             for item in cart['cart_items']:
@@ -61,6 +62,7 @@ def checkout(request):
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY
         )
+        pid = intent.id
         customer_address = request.session['customer_address']
         customer_details = request.session.get('customer_details')
         if customer_details:
@@ -81,6 +83,7 @@ def checkout(request):
         context = {
             'stripe_public_key': stripe_public_key,
             'client_secret': intent.client_secret,
+            'pid': pid,
             'order_form': order_form,
         }
         return render(request, 'checkout/checkout.html', context)
