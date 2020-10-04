@@ -7,17 +7,22 @@ import stripe
 from select_store.models import Store
 from menu.models import Product
 from pizza_dojo.utils.decorators import select_store_decorator
+import json
 
 
 @select_store_decorator
 def checkout(request):
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    cart = cart_contents(request)
-    grand_total = float(cart['grand_total'])
+    context_cart = cart_contents(request)
+    session_cart = request.session.get('cart', [])
+    store_id = request.session['store']
+    store = get_object_or_404(Store, pk=store_id)
+
+    grand_total = float(context_cart['grand_total'])
+    delivery = request.session['delivery']
 
     if request.method == 'POST':
-        print('THis is a POST request')
         form_data = {
             'name': request.POST['name'],
             'email': request.POST['email'],
@@ -26,18 +31,17 @@ def checkout(request):
             'street_address2': request.POST['street_address2'],
             'county': request.POST['county'],
         }
-        print('PID: ', request.POST['pid'] )
+
         order_form = OrderForm(form_data)
         if order_form.is_valid():
             order = order_form.save(commit=False)
-            store_id = request.session['store']
-            order.store = get_object_or_404(Store, pk=store_id)
-            order.delivery = request.session['delivery']
-            order.order_total = cart['grand_total']
+            order.store = store
+            order.delivery = delivery
+            order.order_total = context_cart['grand_total']
             order.stripe_pid = request.POST['pid']
             order.user = request.user
             order.save()
-            for item in cart['cart_items']:
+            for item in context_cart['cart_items']:
                 order_line_item = OrderLineItem(
                     order=order,
                     product=item['product'],
@@ -54,15 +58,19 @@ def checkout(request):
             print('invalid form')
 
     else:
-        print('THis is NOT a POST request')
-
         stripe_total = round(grand_total * 100)
         stripe.api_key = stripe_secret_key
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
-            currency=settings.STRIPE_CURRENCY
+            currency=settings.STRIPE_CURRENCY,
+            metadata={
+                'cart': json.dumps(session_cart),
+                'delivery': delivery,
+                'store_id': store_id,
+            }
         )
         pid = intent.id
+        print('intent: ', intent)
         customer_address = request.session['customer_address']
         customer_details = request.session.get('customer_details')
         if customer_details:
