@@ -36,11 +36,16 @@
                     {{ order_form.county }}
                 </div>                    
             </div>
-        {{ order_form.order_total }}                  
+        {{ order_form.order_total }}
+        <button type="submit">CONFIRM PAYMENT</button>
+        {% if not user.is_authenticated %}
+            <label for="save-info">Save Info</label>
+            <input  type="checkbox" id="save-info" name="save-info" checked>
+         {% endif %}                 
         </form>
         <div id="card-element"></div>
         <div>Total: €{{grand_total}}</div>
-        <button id="submit-payment">CONFIRM PAYMENT</button>
+        
     </div>
 </div>
 {% endblock %}
