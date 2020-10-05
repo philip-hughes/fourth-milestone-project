@@ -7,6 +7,7 @@ import stripe
 from select_store.models import Store
 from menu.models import Product
 from pizza_dojo.utils.decorators import select_store_decorator
+from django.http import HttpResponseRedirect
 import json
 
 
@@ -105,11 +106,13 @@ def checkout(request):
 
 
 def checkout_success(request):
+    if request.session['cart'] == []:
+        return HttpResponseRedirect('/menu')
     template = 'checkout/checkout_success.html'
     cart_items = cart_contents(request)
     context = {
         'cart_items': cart_items['cart_items']
     }
-    del request.session['cart']
+    request.session['cart'] = []
 
     return render(request, template, context)
