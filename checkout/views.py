@@ -18,6 +18,13 @@ def checkout(request):
     session_cart = request.session.get('cart', [])
     store_id = request.session['store']
     store = get_object_or_404(Store, pk=store_id)
+    
+    if request.user.is_anonymous:
+        user = None
+    else: 
+        user = request.user    
+    print('User: ', user)
+    
 
     grand_total = float(context_cart['grand_total'])
     delivery = request.session['delivery']
@@ -39,7 +46,7 @@ def checkout(request):
             order.delivery = delivery
             order.order_total = context_cart['grand_total']
             order.stripe_pid = request.POST['pid']
-            order.user = request.user
+            order.user = user
             order.save()
             for item in context_cart['cart_items']:
                 order_line_item = OrderLineItem(
