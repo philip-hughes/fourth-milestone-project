@@ -75,6 +75,9 @@
     position: absolute;
     right: 11px;
     top: 5px;
+    font-weight: 700;
+    font-size: larger;
+    color: #382e8d;
 }
 
 hr {

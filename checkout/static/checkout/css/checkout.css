@@ -91,11 +91,19 @@ input:invalid {
     top: 8px;
 }
 
+#total-wrapper {
+    position: relative;
+    height: 100px;
+    background-color: white;
+}
 
 #grand-total {
     position: absolute;
     right: 11px;
     top: 5px;
+    font-weight: 700;
+    font-size: larger;
+    color: #382e8d;
 }
 
 hr {
