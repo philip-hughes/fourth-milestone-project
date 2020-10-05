@@ -49,6 +49,11 @@ input:invalid {
 
 #success-title {
     text-align: center;
+    color: #f60f54;
+}
+
+#success-wrapper h3 {
+    color: #f60f54;
 }
 
 #cart-items {
