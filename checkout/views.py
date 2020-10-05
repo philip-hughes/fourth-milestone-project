@@ -111,7 +111,8 @@ def checkout_success(request):
     template = 'checkout/checkout_success.html'
     cart_items = cart_contents(request)
     context = {
-        'cart_items': cart_items['cart_items']
+        'cart_items': cart_items['cart_items'],
+        'total': cart_items['grand_total']
     }
     request.session['cart'] = []
 
