@@ -4,12 +4,12 @@
 {% load i18n %}
 
 
-{% block head_title %}{% trans "Sign In" %}{% endblock %}
+{% block head_title %}{% trans "SIGN IN" %}{% endblock %}
 
 {% block content %}
 <div class="login-wrapper">
     <div class="form-wrapper">
-        <h1>{% trans "Sign In" %}</h1>
+        <h1>{% trans "SIGN IN" %}</h1>
         <form class="login" method="POST" action="{% url 'account_login' %}">
             {% csrf_token %}
             <div class="form-input-wrapper">
