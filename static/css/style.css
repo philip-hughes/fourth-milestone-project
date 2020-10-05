@@ -93,13 +93,21 @@ header {
 
 
 /**********Forms*****************/
+.login-wrapper {
+    margin-top: 15px;
+}
+
+#login-button-wrapper {
+    position: relative;
+}
 
 .form-wrapper {
     position: relative;
     margin: 0 auto;
     width: 500px;
     margin-bottom: 40px;
-    background-color: #e9ecef;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    background-color: white;
 }
 
 .form-wrapper h1 {
@@ -109,12 +117,16 @@ header {
 .form-input-wrapper {
     position: relative;
     margin: 0 auto;
-    width: 450px;
+    width: 420px;
     padding-bottom: 10px;
 }
+
 .form-input label, .form-input input {
     display: block;
+    width: 100%;
 }
+
+
 
 .form-input input {
     width: 420px;
@@ -126,10 +138,27 @@ header {
     margin-bottom: 0;
 }
 
-.form-wrapper button {
+/*.form-wrapper button {
     position: absolute;
     right: 5px;
     border: none;
+}*/
+
+#login-form-button {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 45px;
+    border: none;
+    width: 100%;
+    height: 30px;
+    font-family: 'Permanent Marker', cursive;
+    font-weight: 400;
+    color: white;
+    background-color: #27a5ef;
+}
+
+#forgot-password {
+    color: #0b3649;
 }
 
 input:invalid {

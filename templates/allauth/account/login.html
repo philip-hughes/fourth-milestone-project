@@ -21,12 +21,12 @@
                     <label for="password">Password</label>
                     {{ form.password }}
                 </div>
+                <a id="forgot-password" class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
+                <button id="login-form-button" class="primaryAction" type="submit">{% trans "Sign In" %}</button>
             </div>    
         {% if redirect_field_value %}
             <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <a class="button secondaryAction" href="{% url 'account_reset_password' %}">{% trans "Forgot Password?" %}</a>
-        <button class="primaryAction" type="submit">{% trans "Sign In" %}</button>
         </form>
     </div>
 </div>    
