@@ -145,7 +145,7 @@ header {
     border: none;
 }*/
 
-#login-form-button {
+#login-form-button, #signup-submit {
     display: block;
     margin-top: 10px;
     margin-bottom: 45px;
