@@ -93,9 +93,6 @@ header {
 
 
 /**********Forms*****************/
-.login-wrapper {
-    margin-top: 15px;
-}
 
 #login-button-wrapper {
     position: relative;
@@ -103,7 +100,7 @@ header {
 
 .form-wrapper {
     position: relative;
-    margin: 0 auto;
+    margin: 15px auto 0 auto;
     width: 500px;
     margin-bottom: 40px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
@@ -126,8 +123,6 @@ header {
     display: block;
     width: 100%;
 }
-
-
 
 .form-input input {
     width: 420px;

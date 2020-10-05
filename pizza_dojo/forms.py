@@ -7,8 +7,6 @@ class CustomSignupForm(SignupForm):
     def __init__(self, *args, **kwargs):
         super(CustomSignupForm, self).__init__(*args, **kwargs) 
         self.auto_id = '%s'
-        self.fields['password1'].widget = forms.TextInput(attrs={'autocomplete': 'no'})
-        self.fields['password2'].widget = forms.TextInput(attrs={'autocomplete': 'no'})
 
     first_name = forms.CharField(max_length=30, label='First Name')
     contact_number = forms.CharField(max_length=20, label='Contact number')
