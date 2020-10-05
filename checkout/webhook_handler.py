@@ -44,6 +44,7 @@ class StripeWH_Handler:
         #  Check if order has already been created
         order_exists = False
         attempt = 1
+        print('wh PID: ', pid)
         while attempt <= 5:
             try:
                 order = Order.objects.get(

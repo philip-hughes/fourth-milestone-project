@@ -20,6 +20,7 @@ $(document).ready(function () {
       document.getElementById('loc_lat').value = near_place.geometry.location.lat();
       document.getElementById('loc_long').value = near_place.geometry.location.lng();
       $("#address-error").prop("hidden", true);
+      $("#signup_form #search_input").prop("disabled", true)
       $("#change-address-button").removeAttr("hidden");
     } catch {
       console.log("Invalid addresss");

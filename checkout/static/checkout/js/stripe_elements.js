@@ -58,7 +58,7 @@ form.addEventListener('submit', function(ev) {
         // payment_intent.succeeded event that handles any business critical
         // post-payment actions.
         console.log('request succeeeded now submit form')
-        //form.submit();
+        form.submit();
 
       }
     }
