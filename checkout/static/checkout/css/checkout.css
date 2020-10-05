@@ -40,3 +40,59 @@ input:invalid {
 #card-element {
     width: 453px;
     margin-left: 24px;
+}
+/*************Checkout success***************/
+
+#success-wrapper {
+    text-align: center;
+}
+
+#success-title {
+    text-align: center;
+}
+
+#cart-items {
+    display: inline-block;
+    width: 900px;
+    margin-bottom: 40px;
+    background-color: white;
+}
+
+.cart-item-wrapper {
+    position: relative;
+    height: 85px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.cart-item-wrapper img {
+    position: absolute;
+    left: 11px;
+    top: 8px;
+    height: 70px;
+    width: 70px;
+}
+
+.cart-item-name {
+    position: absolute;
+    left: 90px;
+    top: 8px;   
+}
+
+
+.sub-total {
+    position: absolute;
+    right: 11px;
+    top: 8px;
+}
+
+
+#grand-total {
+    position: absolute;
+    right: 11px;
+    top: 5px;
+}
+
+hr {
+    width: 750px;
+    margin: 0;
+}

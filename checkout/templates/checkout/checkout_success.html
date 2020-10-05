@@ -1,10 +1,35 @@
-{% extends 'base.html' %}
-{% load static %}
-{% block extra_css %}
-<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
-{% endblock %}
-
-{% block content %}
-<h1>Checkout success screen</h1>
+{% extends 'base.html' %} {% load static %} {% block extra_css %}
+<link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}" />
+{% endblock %} {% block content %}
+<div id="success-wrapper">
+  <h1 id="success-title">THANKS FOR YOUR ORDER</h1>
+  <h2 id="order-number">{{request.session.order_number}}</h2>
+  <div id="cart-items">
+    {% for item in cart_items %} {% if item.product.product_type == 'PIZZA' %}
+    <div class="cart-item-wrapper">
+      <img src="{{item.product.image_url}}" />
+      <span class="cart-item-name"
+        >{{item.product.name}} x{{item.quantity}}</span
+      >
+      <span class="sub-total">€{{item.sub_total}}</span>
+     
+    </div>
+    <hr />
+    {% else %}
+    <div class="cart-item-wrapper">
+      <img src="{{item.product.image_url}}" />
+      <span class="cart-item-name"
+        >{{item.product.name}} x{{item.quantity}}</span
+      >
+      <span class="sub-total">€{{item.sub_total}}</span>
+    
+    </div>
+    <hr />
+    {% endif %} {% endfor %}
+    <div id="checkout-now">
+      <span id="grand-total">Total: €{{grand_total}}</span>
+    </div>
+  </div>
+</div>
 
 {% endblock %}

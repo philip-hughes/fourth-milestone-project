@@ -26,7 +26,7 @@ def add_to_cart(request, product_id):
         cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity, 'customizations': customizations})
         request.session['cart'] = cart
         return redirect(request.META.get('HTTP_REFERER'))
-    else:    
+    else:
         for index, item in enumerate(cart):
             if (item['product_id'] == product_id) and (item['size'] == size):
                 cart[index]['quantity'] += quantity

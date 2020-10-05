@@ -18,13 +18,13 @@ def checkout(request):
     session_cart = request.session.get('cart', [])
     store_id = request.session['store']
     store = get_object_or_404(Store, pk=store_id)
-    
+
     if request.user.is_anonymous:
         user = None
     else: 
         user = request.user    
     print('User: ', user)
-    
+
 
     grand_total = float(context_cart['grand_total'])
     delivery = request.session['delivery']
@@ -58,7 +58,7 @@ def checkout(request):
                     customizations=item['customizations']
                 )
                 order_line_item.save()
-
+            request.session['order_number'] = order.order_number
             return redirect(reverse('checkout_success'))
 
         else:
@@ -106,7 +106,10 @@ def checkout(request):
 
 def checkout_success(request):
     template = 'checkout/checkout_success.html'
+    cart_items = cart_contents(request)
     context = {
+        'cart_items': cart_items['cart_items']
     }
+    del request.session['cart']
 
     return render(request, template, context)

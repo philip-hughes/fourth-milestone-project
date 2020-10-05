@@ -44,5 +44,5 @@ def cart_contents(request):
         'store': store,
         'store_name': store_name
         }
-    print('context:', context)
+
     return context
