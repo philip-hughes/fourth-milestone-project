@@ -4,7 +4,7 @@
 <link rel="stylesheet" href="{% static 'cart/css/cart.css' %}">
 {% endblock %}
 {% block content %}
-<div id="cart-wrapper">
+<div id="cart-wrapper"> 
     <div id="cart-items">
         {% for item in cart_items %}
             {% if item.product.product_type == 'PIZZA' %}
@@ -48,6 +48,8 @@
             </div>
             <hr>
             {% endif %}
+            {% empty %}
+            <h2 id="empty-cart-message">Cart is empty!</h2>
         {% endfor %}
         <div id="checkout-now">
             <span id="grand-total">Total: €{{grand_total}}</span>

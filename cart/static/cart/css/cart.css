@@ -91,3 +91,7 @@ hr {
     width: 100%;
     margin: 0;
 }
+
+#empty-cart-message {
+    text-align: center;
+}
