@@ -1,9 +1,11 @@
 #cart-wrapper {
-    text-align: center;
+    width: 92vw;
+    margin: 0 auto;
 }
 
 #cart-items {
     display: inline-block;
+    width: 100%;
     margin-bottom: 40px;
     margin-top: 15px;
     background-color: white;
@@ -86,6 +88,6 @@
 }
 
 hr {
-    width: 750px;
+    width: 100%;
     margin: 0;
 }
