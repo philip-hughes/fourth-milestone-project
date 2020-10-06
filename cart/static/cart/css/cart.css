@@ -4,7 +4,6 @@
 
 #cart-items {
     display: inline-block;
-    width: 900px;
     margin-bottom: 40px;
     margin-top: 15px;
     background-color: white;
@@ -28,6 +27,12 @@
     position: absolute;
     left: 90px;
     top: 8px;   
+}
+
+@media(max-width: 400px){
+    .cart-item-name {
+        width: 100px;
+    }
 }
 
 .increase {
