@@ -94,13 +94,14 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_EMAIL_VERIFICATION = 'optional'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = False
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 ACCOUNT_FORMS = {'signup': 'pizza_dojo.forms.CustomSignupForm'}
 ACCOUNT_USERNAME_REQUIRED = False
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/menu'
+ACCOUNT_LOGOUT_ON_GET = True
 
 WSGI_APPLICATION = 'pizza_dojo.wsgi.application'
 
