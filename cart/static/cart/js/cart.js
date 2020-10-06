@@ -10,3 +10,7 @@ $(".adjust-cart").click(function (e) {
         $(this).closest('form').submit()
         }
 });
+
+ if( $('#empty-cart-message').length ){
+     $('#checkout-now button').attr('disabled', 'true').css('background-color', 'lightgrey')
+ }
