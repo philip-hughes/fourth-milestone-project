@@ -13,9 +13,12 @@ import json
 
 @select_store_decorator
 def checkout(request):
+    context_cart = cart_contents(request)
+    if context_cart['cart_items'] == []:
+        return HttpResponseRedirect('/menu')
+
     stripe_public_key = settings.STRIPE_PUBLIC_KEY
     stripe_secret_key = settings.STRIPE_SECRET_KEY
-    context_cart = cart_contents(request)
     session_cart = request.session.get('cart', [])
     store_id = request.session['store']
     store = get_object_or_404(Store, pk=store_id)
