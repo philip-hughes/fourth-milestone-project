@@ -5,13 +5,15 @@ html {
  }
 
  #menu-wrapper {
-     padding-top: 34px;
+     padding-top: 40px;
  }
 
 .menu-section-heading {
     text-align: center;
     font-family: 'Permanent Marker', cursive;
     color: #d33131;
+    padding-top: 34px;
+    padding-bottom: 10px;
 }
 
 section {

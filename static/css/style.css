@@ -109,7 +109,6 @@ header {
 
 .form-wrapper h1 {
     text-align: center;
-    
 }
 
 .form-input-wrapper {
@@ -185,7 +184,8 @@ input:invalid {
 
 /*********************Footer***********************/
 footer {
-    height: 200px;
+    height: 150px;
+    width: 100%;
     background-color: black;
 }
 
