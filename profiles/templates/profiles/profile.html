@@ -12,6 +12,14 @@
         {% csrf_token %}
             <div class="form-input-wrapper">
                 <div class="form-input">
+                    <label for="first_name">First name</label>
+                    <input type="text" name="first_name" value="{{user.first_name}}">
+                </div>
+                <div class="form-input">
+                    <label for="email">Email</label>
+                    <input type="email" name="email" value="{{user.email}}">
+                </div>
+                <div class="form-input">
                     <label for="contact_number">Contact Number</label>
                     {{ profile_form.contact_number }}
                 </div>
@@ -26,8 +34,12 @@
                 <div class="form-input">
                     <label for="county">County</label>
                     {{ profile_form.county }}
-                </div>                    
+                </div>
+                <div hidden>
+                    {{ profile_form.user }}
+                </div>                       
             </div>
+            <button type="submit">Update</button>
         </form>
     </div>
 </div>
