@@ -14,17 +14,30 @@ def profile(request):
     print('user profile: ', profile.street_address1)
 
     if request.method == 'POST':
-        profile_form = UserProfileForm(request.POST, instance=profile, prefix="profile")
+        profile_form = UserProfileForm(
+            request.POST, instance=profile, prefix="profile")
         if profile_form.is_valid():
             print('form is valid')
-            profile_form.save()
-        else:
-            print('form invalid.............')    
-        user = User.objects.get(username=user.username)
-        user.first_name = request.POST['first_name']
-        user.email = request.POST['email']
-        user.save()
-        return render(request, 'profiles/profile.html')
+            profile_form = profile_form.save()
+            user = User.objects.get(email=user.email)
+            user.first_name = request.POST['first_name']
+            user.email = request.POST['email']
+            user.save()
+            user = User.objects.get(email=user.email)
+
+            print('saved user: ', user)
+            profile_form = UserProfileForm(prefix="profile", initial={
+                'user': profile.user,
+                'street_address1': profile.street_address1,
+                'street_address2': profile.street_address2,
+                'county': profile.county,
+                'contact_number': profile.contact_number
+            })
+            context = {
+                'profile_form': profile_form,
+                'user': user
+            }
+        return render(request, 'profiles/profile.html', context)
 
     else:
         #user = User.objects.get(email=billing_details.email)
