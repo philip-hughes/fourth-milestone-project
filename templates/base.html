@@ -37,7 +37,7 @@
             
             {% if request.user.is_authenticated %}
             <div id="auth-user-links">
-                <a href="{% url 'profile' %}"><span>Blah{{user.first_name}}</span></a>
+                <a href="{% url 'profile' %}"><span>{{user.first_name}}</span></a>
                 <a href="{% url 'account_logout' %}"><span>Logout</span></a>
             </div>    
             {% else %}

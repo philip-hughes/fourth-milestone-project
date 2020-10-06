@@ -21,10 +21,10 @@ var card = elements.create('card', {style: style});
 card.mount('#card-element');
 
 var form = document.getElementById('payment-form');
+console.log('form: ' + form)
 
 /*Handle form submit*/
 form.addEventListener('submit', function(ev) {
-  console.log('county' + form.county.value)
   ev.preventDefault();
   card.update({'disabled': true});
   $('#submit-button').attr('disabled', true)
@@ -47,7 +47,7 @@ form.addEventListener('submit', function(ev) {
       // Show error to your customer (e.g., insufficient funds)
       card.update({'disabled': false});
       $('#submit-button').attr('disabled', false)
-      console.log(result.error.message);
+      console.log('there was an error' + result.error.message);
       
     } else {
       // The payment has been processed!
@@ -59,7 +59,6 @@ form.addEventListener('submit', function(ev) {
         // post-payment actions.
         console.log('request succeeeded now submit form')
         form.submit();
-
       }
     }
   });

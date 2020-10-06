@@ -1,13 +1,32 @@
 /****************Details*******************/
 
-#checkout-wrapper {
-}
-
-
 input:invalid {
   border: 1px solid #fa755a;
 }
 
+#payment-form {
+    padding-bottom: 10px;
+}
+
+#payment-button {
+    display: block;
+    width: 420px;
+    height: 35px;
+    margin: 10px auto 0 auto;
+    border: none;
+}
+
+#payment-total {
+    position: relative;
+    height: 30px;
+    width: 420px;
+    margin: 0 auto;
+}
+
+#payment-total span {
+    position: absolute;
+    right: 5px;
+}
 /****************Stripe input******************/
 .StripeElement {
   box-sizing: border-box;

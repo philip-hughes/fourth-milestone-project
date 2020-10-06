@@ -37,11 +37,14 @@
                     {{ order_form.county }}
                 </div>                    
             </div>
-        {{ order_form.order_total }}
-        <button type="submit">CONFIRM PAYMENT</button>             
-        </form>
-        <div id="card-element"></div>
-        <div>Total: €{{grand_total}}</div>
+            {{ order_form.order_total }}
+        <div id="payment-total">
+            <span>TOTAL: €{{grand_total}}</span>
+        </div>    
+         <div id="card-element"></div>      
+        <button id="payment-button" type="submit">CONFIRM PAYMENT</button>             
+        </form>       
+        
         
     </div>
 </div>
