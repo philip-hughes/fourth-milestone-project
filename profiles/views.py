@@ -28,7 +28,7 @@ def profile(request):
             'street_address1': profile.street_address1,
             'street_address2': profile.street_address2,
             'county': profile.county,
-            'contact_number': profile.county
+            'contact_number': profile.contact_number
         })
 
         context = {

@@ -6,15 +6,28 @@
 
 {% block content %}
 <div id="profile-wrapper">
-    <div id="personal-details-wrapper">
-        <h2>Personal details</h2>
-    </div>
-    <div id="delivery-address-wrapper">
-        <h2>Delivery address</h2>
+    <div id="your-details-wrapper">
+        <h2>Your Details</h2>
         <form id='profile-form' action="{% url 'profile' %}" method="POST">
-            {{ profile_form.street_address1 }}
-            {{ profile_form.street_address2 }}
-            {{ profile_form.county }}
+        {% csrf_token %}
+            <div class="form-input-wrapper">
+                <div class="form-input">
+                    <label for="contact_number">Contact Number</label>
+                    {{ profile_form.contact_number }}
+                </div>
+                <div class="form-input">
+                    <label for="street_address1">Address 1</label>
+                    {{ profile_form.street_address1 }}
+                </div>
+                <div class="form-input">
+                    <label for="street_address2">Address 2</label>
+                    {{ profile_form.street_address2  }}
+                </div>
+                <div class="form-input">
+                    <label for="county">County</label>
+                    {{ profile_form.county }}
+                </div>                    
+            </div>
         </form>
     </div>
 </div>
