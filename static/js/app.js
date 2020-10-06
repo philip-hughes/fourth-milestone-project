@@ -20,12 +20,12 @@
         if ( $( "#bottom-header" ).length ) {
                 console.log('applying content style')
                 $(".content-wrapper").css('padding-top', '153px')
-                $(".content-wrapper").css('min-height', 'calc(100vh - 150px)')
+                $(".content-wrapper, #select-store-wrapper").css('min-height', 'calc(100vh - 150px)')
                 /*150px = footer height*/
             }
         else {
                 $(".content-wrapper").css('padding-top', '103px')
-                $(".content-wrapper").css('min-height', 'calc(100vh - 150px)')
+                $(".content-wrapper, #select-store-wrapper").css('min-height', 'calc(100vh - 150px)')
                 /*150px = footer height*/
         }   
 
