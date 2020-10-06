@@ -1,5 +1,22 @@
 {% extends 'base.html' %}
+{% load static %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'profiles/css/profiles.css' %}">
+{% endblock %}
 
 {% block content %}
-<h1>Profiles screen</h1>
+<div id="profile-wrapper">
+    <div id="personal-details-wrapper">
+        <h2>Personal details</h2>
+    </div>
+    <div id="delivery-address-wrapper">
+        <h2>Delivery address</h2>
+        <form id='profile-form' action="{% url 'profile' %}" method="POST">
+            {{ profile_form.street_address1 }}
+            {{ profile_form.street_address2 }}
+            {{ profile_form.county }}
+        </form>
+    </div>
+</div>
+
 {% endblock %}
