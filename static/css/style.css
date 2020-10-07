@@ -55,6 +55,27 @@ header {
     top: 15px;
 }
 
+#dropdown-button {
+    display: none;
+}
+
+@media(max-width: 510px){
+    #dropdown-button {
+        display: inline-block;
+        position: absolute;
+        right: 30px;
+        top: 15px;
+        background-color: white;
+        border: none;
+    }
+}
+
+.menu-line {
+  width: 35px;
+  height: 4px;
+  background-color: black;
+  margin: 6px 0;
+}
 
 #bottom-header {
     text-align: center;
