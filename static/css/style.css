@@ -45,6 +45,8 @@ header {
 
 #main-title {
     text-align: center;
+    color: #212529;
+    
 }
 
 #auth-user-links, #unauth-user-links {
