@@ -71,7 +71,7 @@ section {
 .menu-item {
     position: relative;
     max-width: 230px;
-    margin:0 auto;
+    margin:0 auto 10px auto;
     background-color: black;
 }
 
