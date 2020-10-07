@@ -30,6 +30,8 @@ header {
 
 #main-title {
     position: absolute;
+    text-align: center;
+    color: #212529;  
     top: 6px;
     right: 34px;
     font-family: 'Permanent Marker', cursive;
@@ -43,10 +45,6 @@ header {
 }
 
 
-#main-title {
-    text-align: center;
-    color: #212529;   
-}
 
 .user-links {
     display: inline-block;
@@ -64,11 +62,11 @@ header {
     display: none;
 }
 
-@media(max-width: 510px){
+@media(max-width: 580px){
     #dropdown-button {
         display: inline-block;
         position: absolute;
-        right: 30px;
+        right: 4vw;
         top: 15px;
         background-color: white;
         border: none;
@@ -76,6 +74,8 @@ header {
     .user-links {
         display: none;
     }
+
+
 }
 
 .menu-line {
@@ -83,6 +83,15 @@ header {
   height: 4px;
   background-color: black;
   margin: 6px 0;
+}
+
+@media(max-width: 350px){
+    .menu-line {
+        width: 25px;
+    }
+    #title-wrapper {
+        margin-left: 5px;
+    }
 }
 
 #dropdown-menu {
