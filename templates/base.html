@@ -58,7 +58,17 @@
           <div class="menu-line"></div>
         </button>
         <div id="dropdown-menu">
-        
+                {% if request.user.is_authenticated %}
+        <div class="dropdown-links">
+          <a href="{% url 'profile' %}"><span id="user-name">PROFILE</span></a>
+          <a href="{% url 'account_logout' %}"><span id="logout">LOGOUT</span></a>
+        </div>
+        {% else %}
+        <div class="dropdown-links">
+          <a href="{% url 'account_signup' %}"><span id="register">Register</span></a>
+          <a href="{% url 'account_login' %}"><span id="login">Login</span></a>
+        </div>
+        {% endif %}
         </div>
       </div>
       {% if store %}

@@ -79,12 +79,28 @@ header {
 
 #dropdown-menu {
     display: none;
-    position: absolute;
-    height: 300px;
+    position: relative;
+    text-align: center;
+    height: 200px;
     width: 100%;
     top: 80;
     background-color: black;
     z-index: 2;
+}
+
+.dropdown-links {
+    position: relative;
+    display: block;
+    width: 100px;
+    margin: 0 auto;
+    font-size: 30px;
+    top: 40px
+}
+
+.dropdown-links a {
+    display: block;
+    color: white;
+    padding-bottom: 15px;
 }
 
 #bottom-header {
