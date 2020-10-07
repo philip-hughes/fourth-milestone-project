@@ -3,7 +3,6 @@
 {% block extra_css %}
 <link rel="stylesheet" href="{% static 'checkout/css/checkout.css' %}">
 {% endblock %}
-
 {% block content %}
 <div id="checkout-wrapper">
     <div class="form-wrapper">
@@ -35,7 +34,7 @@
                 <div class="form-input">
                     <label for="county">County</label>
                     {{ order_form.county }}
-                </div>                    
+                </div>                  
             </div>
             {{ order_form.order_total }}
         <div id="payment-total">

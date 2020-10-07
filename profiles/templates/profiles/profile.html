@@ -35,11 +35,19 @@
                     <label for="county">County</label>
                     {{ profile_form.county }}
                 </div>
+                <button id="change-address-button">Change Address</button> 
+                <div class="form-input">
+                    <label for="search_input">New Address</label>
+                    <input type="text" name="search_input" required id="search_input" class="pac-target-input" placeholder="Enter your address" autocomplete="no">
+                </div>
+                <span hidden id="address-error">Please choose a valid address</span>
+                {{ profile_form.latitude }}
+                {{ profile_form.longitude }}
                 <div hidden>
                     {{ profile_form.user }}
                 </div>                       
             </div>
-            <button type="submit">Update</button>
+            <button type="submit">Apply Changes</button>
         </form>
     </div>
 </div>
