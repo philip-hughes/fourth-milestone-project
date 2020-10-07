@@ -45,8 +45,7 @@ header {
 
 #main-title {
     text-align: center;
-    color: #212529;
-    
+    color: #212529;   
 }
 
 #auth-user-links, #unauth-user-links {
@@ -55,6 +54,7 @@ header {
     right: 30px;
     top: 15px;
 }
+
 
 #bottom-header {
     text-align: center;

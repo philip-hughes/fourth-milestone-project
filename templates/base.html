@@ -2,75 +2,92 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Pizza Dojo</title>
-    {% block corecss %} 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/all.min.css' %}">
-    <link rel="stylesheet" href="{% static 'css/style.css' %}">
-    {% endblock %}
-    {% block extra_css %}{% endblock %}
-
-    {% block corejs %}
+    {% block corecss %}
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      type="text/css"
+    />
+    <link
+      rel="stylesheet"
+      href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css"
+    />
+    <link rel="stylesheet" href="{% static 'css/fontawesome.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/all.min.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+    {% endblock %} {% block extra_css %}{% endblock %} {% block corejs %}
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <script src="https://js.stripe.com/v3/"></script>
-    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Y1Jc7Syxl2pf04Y9wIy-HbV26wVkpzo&libraries=places"></script>
+    <script
+      type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7Y1Jc7Syxl2pf04Y9wIy-HbV26wVkpzo&libraries=places"
+    ></script>
     <script type="text/javascript" src="{% static '/js/app.js' %}"></script>
-    {% endblock %}
-
-    {% block extra_js %}{% endblock %}
-</head>
-<body>
+    {% endblock %} {% block extra_js %}{% endblock %}
+  </head>
+  <body>
     <header>
-        <div id="top-header">
-            <div id="title-wrapper">
-                <a href="{% url 'menu' %}">
-                    <img id="logo-img" src="/media/dojo-logo.jpg">
-                    <h1 id="main-title" >Pizza Dojo</h1>
-                </a>
-            </div>
-            
-            {% if request.user.is_authenticated %}
-            <div id="auth-user-links">
-                <a href="{% url 'profile' %}"><span>{{user.first_name}}</span></a>
-                <a href="{% url 'account_logout' %}"><span>Logout</span></a>
-            </div>    
-            {% else %}
-            <div id="unauth-user-links">
-                <a href="{% url 'account_signup' %}">Register</a>
-                <a href="{% url 'account_login' %}">Login</a>
-            </div>    
-            {% endif %}            
+      <div id="top-header">
+        <div id="title-wrapper">
+          <a href="{% url 'menu' %}">
+            <img id="logo-img" src="/media/dojo-logo.jpg" />
+            <h1 id="main-title">Pizza Dojo</h1>
+          </a>
         </div>
-        {% if store %}
-        <div id="bottom-header">
-            <div id="nav-link-wrapper">
-                <a class="nav-link" href="{% url 'select_store' %}"><button><i class="fas fa-map-marker-alt"></i> {{store_name}}</button></a>
-                <a class="nav-link" href="{% url 'menu' %}"><button>Menu</button></a>
-                <a class="nav-link" href="{% url 'view_cart' %}"><button><i class="fas fa-shopping-cart"></i> €{{grand_total}}</button></a>
-            </div>
+        {% if request.user.is_authenticated %}
+        <div id="auth-user-links">
+          <a href="{% url 'profile' %}"><span id="user-name">{{user.first_name}}</span></a>
+          <a href="{% url 'account_logout' %}"><span id="logout">Logout</span></a>
         </div>
-        {% endif %}
+        {% else %}
+        <div id="unauth-user-links">
+          <a href="{% url 'account_signup' %}"><span id="register">Register</span></a>
+          <a href="{% url 'account_login' %}"><span id="login">Login</span></a>
+        </div>
+        {% endif %}
+      </div>
+      {% if store %}
+      <div id="bottom-header">
+        <div id="nav-link-wrapper">
+          <a class="nav-link" href="{% url 'select_store' %}"
+            ><button>
+              <i class="fas fa-map-marker-alt"></i> {{store_name}}
+            </button></a
+          >
+          <a class="nav-link" href="{% url 'menu' %}"><button>Menu</button></a>
+          <a class="nav-link" href="{% url 'view_cart' %}"
+            ><button>
+              <i class="fas fa-shopping-cart"></i> €{{grand_total}}
+            </button></a
+          >
+        </div>
+      </div>
+      {% endif %}
     </header>
-<div class="content-wrapper">    
-{% block content %} 
-{% endblock %}
-</div>
-<footer>
-    <div class="offset-2 col-8" id="media-links">
-        <h2>Follow Us</h2>
-        <a href="https://www.facebook.com/" target="_blank"><i class="fab fa-facebook"></i></a>
-        <a href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram"></i></a>
-        <a href="https://www.twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
+    <div class="content-wrapper">
+      {% block content %} {% endblock %}
     </div>
-</footer>
-{% block postloadjs %}
-{% endblock %}
-</body>
+    <footer>
+      <div class="offset-2 col-8" id="media-links">
+        <h2>Follow Us</h2>
+        <a href="https://www.facebook.com/" target="_blank"
+          ><i class="fab fa-facebook"></i
+        ></a>
+        <a href="https://www.instagram.com/" target="_blank"
+          ><i class="fab fa-instagram"></i
+        ></a>
+        <a href="https://www.twitter.com/" target="_blank"
+          ><i class="fab fa-twitter"></i
+        ></a>
+      </div>
+    </footer>
+    {% block postloadjs %} {% endblock %}
+  </body>
 </html>
