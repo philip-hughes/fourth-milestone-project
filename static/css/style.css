@@ -239,6 +239,10 @@ input:invalid {
     margin-bottom: 5px;
 }
 
+#form-error {
+    color: red;
+}
+
 /*********************Footer***********************/
 footer {
     height: 150px;

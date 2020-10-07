@@ -14,6 +14,9 @@
         <form class="signup" id="signup_form" method="post" autocomplete="no" action="{% url 'account_signup' %}">
             {% csrf_token %}
             <div class="form-input-wrapper">
+                {% if form.errors %}
+                <span id="form-error">Please complete all fields and ensure passwords match</span>
+                {% endif %}
                 <div class="form-input">
                     <label for="first_name">First name</label>
                     {{ form.first_name }}
