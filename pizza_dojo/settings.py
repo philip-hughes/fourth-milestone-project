@@ -25,7 +25,7 @@ SECRET_KEY = '=)_s@(5yb7y)7xg2huloge5b6l@$f4-fd69k%44+#2@c=kgo=a'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost', 'pizza-dojo.herokuapp.com']
 
 
 # Application definition
