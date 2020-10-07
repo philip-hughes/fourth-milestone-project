@@ -48,11 +48,16 @@ header {
     color: #212529;   
 }
 
-#auth-user-links, #unauth-user-links {
+.user-links {
     display: inline-block;
     position: absolute;
     right: 30px;
-    top: 15px;
+    top: 20px;
+    font-size: 20px;
+}
+
+.user-links a {
+    color: black;
 }
 
 #dropdown-button {
@@ -67,6 +72,9 @@ header {
         top: 15px;
         background-color: white;
         border: none;
+    }
+    .user-links {
+        display: none;
     }
 }
 

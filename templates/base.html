@@ -42,14 +42,14 @@
           </a>
         </div>
         {% if request.user.is_authenticated %}
-        <div id="auth-user-links">
+        <div class="user-links">
           <a href="{% url 'profile' %}"><span id="user-name">{{user.first_name}}</span></a>
           <a href="{% url 'account_logout' %}"><span id="logout">Logout</span></a>
         </div>
         {% else %}
-        <div id="unauth-user-links">
-          <a href="{% url 'account_signup' %}"><span id="register">Register</span></a>
+        <div class="user-links">
           <a href="{% url 'account_login' %}"><span id="login">Login</span></a>
+          <a href="{% url 'account_signup' %}"><span id="register">Register</span></a>
         </div>
         {% endif %}
         <button id="dropdown-button">
