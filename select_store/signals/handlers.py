@@ -29,14 +29,18 @@ def set_store(sender, user, request, **kwargs):
         request.session['customer_details'] = customer_contact_details
         customer_address_coordinates = (latitude, longitude)
         all_stores = Store.objects.all()
-        nearest_store = {'distance': 5000, 'store': ''}
+        nearest_store = {'distance': 0, 'store': ''}
         for store in all_stores:
             store_location = (store.latitude, store.longitude)
             distance_response = gmaps.distance_matrix(
                 customer_address_coordinates, store_location)
             store_distance = int(
                 distance_response['rows'][0]['elements'][0]['distance']['value'])
-            if store_distance <= nearest_store['distance']:
-                nearest_store = {'distance': store_distance, 'store': store}
+            if nearest_store['distance'] != 0:
+                if store_distance <= nearest_store['distance']:
+                    nearest_store = {'distance': store_distance, 'store': store}
+            else:
+                    nearest_store = {'distance': store_distance, 'store': store}    
+
         request.session['store'] = nearest_store['store'].id
         request.session['delivery'] = True
