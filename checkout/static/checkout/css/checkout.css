@@ -105,6 +105,11 @@ input:invalid {
     top: 8px;   
 }
 
+@media(max-width: 400px){
+    .cart-item-name {
+        width: 100px;
+    }
+}
 
 .sub-total {
     position: absolute;
