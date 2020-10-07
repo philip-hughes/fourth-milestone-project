@@ -1,9 +1,42 @@
 #your-details-wrapper {
+    position: relative;
     width: 450px;
-    margin: 0 auto;
+    margin: 10px auto 40px auto;
     background-color: white;
+    font-family: 'Montserrat', sans-serif;
+    
 }
 
+#id_profile-street_address1, #id_profile-street_address2, #id_profile-county {
+    background-color: #ece1e1;
+    border: 1px solid;
+}
+
+#change-address-button {
+    border: none;
+    background-color: #9ad910;
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+}
+#change-address-button:hover {
+    background-color: #80b60c;
+}
 h2 {
     text-align: center;
 }
+
+#apply-changes-button {
+    display: block;
+    border: none;
+    background-color: #27a5ef;
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    width: 94%;
+    height: 38px;
+    margin: 5px auto 0 auto;
+}    
+
+#apply-changes-button:hover {
+    background-color: #158ace;
+
+}    
