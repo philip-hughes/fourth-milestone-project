@@ -1,6 +1,10 @@
 var searchInput = "search_input";
 
+
 $(document).ready(function () {
+ $("#id_profile-latitude, #id_profile-longitude, .search-wrapper").prop('hidden', 'true')
+ $("#id_profile-street_address1, #id_profile-street_address2, #id_profile-county").attr('readonly', 'true')
+ 
   var autocomplete;
   autocomplete = new google.maps.places.Autocomplete(
     document.getElementById(searchInput),
@@ -17,28 +21,30 @@ $(document).ready(function () {
     console.log("setting lat long");
     var near_place = autocomplete.getPlace();
     try {
-      document.getElementById('loc_lat').value = near_place.geometry.location.lat();
-      document.getElementById('loc_long').value = near_place.geometry.location.lng();
+      document.getElementById('id_profile-latitude').value = near_place.geometry.location.lat();
+      document.getElementById('id_profile-longitude').value = near_place.geometry.location.lng();
       $("#address-error").prop("hidden", true);
-      $("#signup_form #search_input").prop("disabled", true)
-      $("#change-address-button").removeAttr("hidden");
+      let addressString = $('#search_input').val().split(',')
+      $("#id_profile-street_address1").val(addressString[0])
+      $("#id_profile-street_address2").val(addressString[1])
+      $("#id_profile-county").val(addressString[2])
+      $("#change-address-button").prop("hidden", false);
+      $(".search-wrapper").prop("hidden", true).val("");
+      addressString = $('#search_input').val("")
     } catch {
       console.log("Invalid addresss");
     }
   });
-  $("#change-address-button").click(function () {
-    $("#loc_lat").val("");
-    $("#loc_long").val("");
+    $("#change-address-button").click(function () {
     $("#change-address-button").prop("hidden", true);
-    $("#signup_form #search_input").prop("disabled", false).val("");
+    $(".search-wrapper").prop("hidden", false).val("");
   });
 
-  $("#signup-submit").click(function (e) {
-    $("#search_input").prop("disabled", false);
+  $("#apply-changes-button").click(function (e) {
     e.preventDefault();
-    if ($("#loc_lat").val() != ""){ 
+    if ($("#id_profile-latitude").val() != ""){    
         console.log("sumbit form")
-        $("#signup_form").submit();
+        $("#profile-form").submit();
     }
     else {
     $("#address-error").prop("hidden", false);
