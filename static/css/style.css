@@ -77,6 +77,16 @@ header {
   margin: 6px 0;
 }
 
+#dropdown-menu {
+    display: none;
+    position: absolute;
+    height: 300px;
+    width: 100%;
+    top: 80;
+    background-color: black;
+    z-index: 2;
+}
+
 #bottom-header {
     text-align: center;
 }

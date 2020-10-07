@@ -43,18 +43,12 @@
         </div>
         {% if request.user.is_authenticated %}
         <div id="auth-user-links">
-          <a href="{% url 'profile' %}"
-            ><span id="user-name">{{user.first_name}}</span></a
-          >
-          <a href="{% url 'account_logout' %}"
-            ><span id="logout">Logout</span></a
-          >
+          <a href="{% url 'profile' %}"><span id="user-name">{{user.first_name}}</span></a>
+          <a href="{% url 'account_logout' %}"><span id="logout">Logout</span></a>
         </div>
         {% else %}
         <div id="unauth-user-links">
-          <a href="{% url 'account_signup' %}"
-            ><span id="register">Register</span></a
-          >
+          <a href="{% url 'account_signup' %}"><span id="register">Register</span></a>
           <a href="{% url 'account_login' %}"><span id="login">Login</span></a>
         </div>
         {% endif %}
@@ -63,6 +57,9 @@
           <div class="menu-line"></div>
           <div class="menu-line"></div>
         </button>
+        <div id="dropdown-menu">
+        
+        </div>
       </div>
       {% if store %}
       <div id="bottom-header">

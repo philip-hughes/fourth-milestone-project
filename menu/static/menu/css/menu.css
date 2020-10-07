@@ -25,8 +25,11 @@ section {
     background-color: white;
     position: fixed;
     top: 130px;
-    z-index: 1;
     width: 100vw;
+}
+
+.visible {
+    z-index: 1;
 }
 
 #section-link-wrapper a {
