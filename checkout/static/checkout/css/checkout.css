@@ -79,7 +79,7 @@ input:invalid {
 
 #cart-items {
     display: inline-block;
-    width: 900px;
+    width: 92vw;
     margin-bottom: 40px;
     margin-top: 15px;
     background-color: white;
@@ -128,6 +128,6 @@ input:invalid {
 }
 
 hr {
-    width: 750px;
+    width: 100%;
     margin: 0;
 }
