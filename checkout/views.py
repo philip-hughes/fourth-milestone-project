@@ -71,17 +71,20 @@ def checkout(request):
     else:
         stripe_total = round(grand_total * 100)
         stripe.api_key = stripe_secret_key
+        cart = json.dumps(session_cart)
+        #Check if cart size exceeds the stripe metadata limit of 500 chars. If yes, set cart as 'empty'
+        if len(cart) > 500:
+            cart = 'Empty'
         intent = stripe.PaymentIntent.create(
             amount=stripe_total,
             currency=settings.STRIPE_CURRENCY,
             metadata={
-                'cart': json.dumps(session_cart),
+                'cart': cart,
                 'delivery': delivery,
                 'store_id': store_id,
             }
         )
         pid = intent.id
-        print('intent: ', intent)
         customer_address = request.session['customer_address']
         customer_details = request.session.get('customer_details')
         if customer_details:

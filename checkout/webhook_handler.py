@@ -31,8 +31,13 @@ class StripeWH_Handler:
         Handle the payment_intent.succeeded webhook from Stripe
         """
         intent = event.data.object
-        pid = intent.id
         cart = intent.metadata.cart
+        if cart == 'Empty':
+            return HttpResponse(
+                    content=f'Webhook received: Cart was empty',
+                    status=500)
+
+        pid = intent.id
         billing_details = intent.charges.data[0].billing_details
         order_total = round(intent.charges.data[0].amount / 100, 2)
 
