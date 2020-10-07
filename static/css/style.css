@@ -162,6 +162,7 @@ header {
     margin-bottom: 40px;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     background-color: white;
+    font-family: 'Montserrat', sans-serif;
 }
 
 @media(max-width: 540px){

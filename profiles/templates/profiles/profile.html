@@ -8,7 +8,7 @@
 {% endblock %}
 {% block content %}
 <div id="profile-wrapper">
-    <div id="your-details-wrapper">
+    <div class="form-wrapper">
         <h2>Your Details</h2>
         <form id='profile-form' action="{% url 'profile' %}" method="POST">
         {% csrf_token %}

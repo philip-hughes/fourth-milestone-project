@@ -1,11 +1,3 @@
-#your-details-wrapper {
-    position: relative;
-    width: 450px;
-    margin: 10px auto 40px auto;
-    background-color: white;
-    font-family: 'Montserrat', sans-serif;
-    
-}
 
 #id_profile-street_address1, #id_profile-street_address2, #id_profile-county {
     background-color: #ece1e1;
