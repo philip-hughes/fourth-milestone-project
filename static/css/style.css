@@ -226,17 +226,17 @@ input:invalid {
     margin-bottom: 5px;
 }
 
-/*********************Verify email screen***********************/
-#verify-email-wrapper {
-    text-align: center;
-    margin-top: 15px;
+/*********************Sign up screen***********************/
+.signup-wrapper {
+    font-family: 'Montserrat', sans-serif;
 }
-#verify-email-wrapper p{
-    max-width: 500px;
-    margin: 0 auto;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-bottom: 15px;
+
+#change-signup-address-button {
+    border: none;
+    background-color: #9ad910;
+    font-family: 'Permanent Marker', cursive;
+    color: white;
+    margin-bottom: 5px;
 }
 
 /*********************Footer***********************/

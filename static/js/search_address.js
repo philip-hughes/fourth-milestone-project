@@ -21,15 +21,15 @@ $(document).ready(function () {
       document.getElementById('loc_long').value = near_place.geometry.location.lng();
       $("#address-error").prop("hidden", true);
       $("#signup_form #search_input").prop("disabled", true)
-      $("#change-address-button").removeAttr("hidden");
+      $("#change-signup-address-button").removeAttr("hidden");
     } catch {
       console.log("Invalid addresss");
     }
   });
-  $("#change-address-button").click(function () {
+  $("#change-signup-address-button").click(function () {
     $("#loc_lat").val("");
     $("#loc_long").val("");
-    $("#change-address-button").prop("hidden", true);
+    $("#change-signup-address-button").prop("hidden", true);
     $("#signup_form #search_input").prop("disabled", false).val("");
   });
 
