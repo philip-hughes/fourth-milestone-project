@@ -1,4 +1,5 @@
 import uuid
+import random
 
 from django.db import models
 from django.conf import settings
@@ -36,7 +37,7 @@ class Order(models.Model):
         """
         Generate a random, unique order number using UUID
         """
-        return uuid.uuid4().hex.upper()
+        return random.randint(100000000000,999999999999)
 
     def save(self, *args, **kwargs):
         """
