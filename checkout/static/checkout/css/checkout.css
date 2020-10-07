@@ -10,16 +10,18 @@ input:invalid {
 
 #payment-button {
     display: block;
-    width: 420px;
+    width: 87%;
     height: 35px;
     margin: 10px auto 0 auto;
     border: none;
+    background-color: #27a5ef;
+    color: white;
 }
 
 #payment-total {
     position: relative;
     height: 30px;
-    width: 420px;
+    width: 87%;
     margin: 0 auto;
 }
 
@@ -57,8 +59,8 @@ input:invalid {
 }
 
 #card-element {
-    width: 453px;
-    margin-left: 24px;
+    width: 87%;
+    margin: 0 auto;
 }
 /*************Checkout success***************/
 
