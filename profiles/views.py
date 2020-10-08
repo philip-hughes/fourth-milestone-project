@@ -38,7 +38,6 @@ def profile(request):
         return render(request, 'profiles/profile.html', context)
 
     else:
-        #user = User.objects.get(email=billing_details.email)
         profile_form = UserProfileForm(prefix="profile", initial={
             'user': profile.user,
             'street_address1': profile.street_address1,

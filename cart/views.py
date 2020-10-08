@@ -11,6 +11,7 @@ def view_cart(request):
 
 def add_to_cart(request, product_id):
     cart = request.session.get('cart', [])
+    # Size_price is on each menu item mapping size to price
     size_price = json.loads(request.POST.get('size_price'))
     size = size_price['size']
     price = size_price['price']
@@ -32,7 +33,7 @@ def add_to_cart(request, product_id):
                 cart[index]['quantity'] += quantity
                 request.session['cart'] = cart
                 return redirect(request.META.get('HTTP_REFERER'))
-    """ Cart has items, but none are identical to the new item """
+    # Cart has items, but none are identical to the new item
     cart.append({'product_id': product_id, 'size': size, 'item_price': price, 'quantity': quantity, 'customizations': customizations})
     request.session['cart'] = cart
     return redirect(request.META.get('HTTP_REFERER'))
@@ -47,7 +48,8 @@ def adjust_cart(request, product_id):
         cart.pop(item_index)
         request.session['cart'] = cart
         return redirect(reverse('view_cart'))
-
+    #For pizzas, rather than increasing quantity, 
+    #the item is copied and appended to the list
     if (adjust_type == 'increase') and (product_type == 'PIZZA'):
         product = cart[item_index]
         cart.append(product)

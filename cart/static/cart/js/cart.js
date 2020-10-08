@@ -10,7 +10,7 @@ $(".adjust-cart").click(function (e) {
         $(this).closest('form').submit()
         }
 });
-
+/* Disable the checkout button if cart is empty*/
  if( $('#empty-cart-message').length ){
      $('#checkout-now button').attr('disabled', 'true').css('background-color', 'lightgrey')
  }

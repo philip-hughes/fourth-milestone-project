@@ -24,6 +24,9 @@ $(document).ready(function () {
       document.getElementById('id_profile-longitude').value = near_place.geometry.location.lng();
       $("#address-error").prop("hidden", true);
       let addressString = $('#search_input').val().split(',')
+
+      /*Populate the address fields with the address returned by google, and then display the change address
+         button */
       $("#id_profile-street_address1").val(addressString[0])
       $("#id_profile-street_address2").val(addressString[1])
       $("#id_profile-county").val(addressString[2])
