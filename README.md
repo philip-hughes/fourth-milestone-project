@@ -27,6 +27,10 @@ adjust the toppings on a chosen pizza. Due to time constraints I had to descope 
 
 I will also be adding a product management, and order management app (to be used in a store) to the project at a later date.
 
+NOTE also that there is an issue with the signup form whereby address and password fields are prepopulated in the
+chrome browser. It should be possible to disable this with the attribute autocomplete=off, but its not working as expected
+and from what i've read online it seems its a bug in chrome itself.  So just to note that when choosing an address you should type it manually
+rather than using the address prepopulated by the browser
 
 ## Features
 
@@ -80,7 +84,9 @@ I will also be adding a product management, and order management app (to be used
 ## Testing
 
 The following tests were manually executed and passed in Chrome. The chrome dev tools device emulator was used for responsive breakpoint testing.  These tests cover the core flows and functionality of the application that should be run as sanity test after any updates or deployment to a new environment. 
-
+For the logged in user tests you can create your own account or login with the following details:
+Email: john@test.com
+Password: Pizzadojo1
 
 1. Open the app at the menu screen as new user. i.e. not registered / logged in - https://pizza-dojo.herokuapp.com/menu/ and verify that
 you are redirected to the select store screen.
