@@ -9,7 +9,7 @@
         {% for item in cart_items %}
             {% if item.product.product_type == 'PIZZA' %}
             <div class="cart-item-wrapper">
-                <img src="{{item.product.image_url}}">
+                <img src="{{MEDIA_URL}}{{item.product.image_url}}">
                 <span class="cart-item-name">{{item.size}} {{item.product.name}} x{{item.quantity}}</span>
                 <span class="sub-total">€{{item.sub_total}}</span>
                 <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">
@@ -28,7 +28,7 @@
             <hr>
             {% else %}
             <div class="cart-item-wrapper">
-                <img src="{{item.product.image_url}}">
+                <img src="{{MEDIA_URL}}{{item.product.image_url}}">
                 <span class="cart-item-name">{{item.size}} {{item.product.name}} x{{item.quantity}}</span>
                 <span class="sub-total">€{{item.sub_total}}</span>
                 <form class="form" action="{% url 'adjust_cart' item.product_id %}" method="POST">

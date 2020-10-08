@@ -20,7 +20,7 @@
             <input name="lat" type="hidden" id="loc_lat" value=""/>
             <input name="long" type="hidden" id="loc_long" value=""/>
         </form>
-        <img id="ss-logo-img" src="/media/dojo-logo.jpg">
+        <img id="ss-logo-img" src="{{MEDIA_URL}}dojo-logo.jpg">
         {% if invalid_address %}
             <div>Invalid address. Please select an address from the autocomplete list</div>
         {% endif %}
