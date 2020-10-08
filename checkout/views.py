@@ -112,8 +112,9 @@ def checkout(request):
 
 
 def checkout_success(request):
-    #if request.session['cart'] == []:
-     #   return HttpResponseRedirect('/menu')
+    if request.session['cart'] == []:
+        return HttpResponseRedirect('/menu')
+
     template = 'checkout/checkout_success.html'
     cart_items = cart_contents(request)
     context = {
