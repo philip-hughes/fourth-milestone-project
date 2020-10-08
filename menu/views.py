@@ -10,7 +10,6 @@ def menu(request):
     dessert_list = []
     drink_list = []
     all_products = Product.objects.order_by('position')
-    print('ordered products: ', all_products)
     for product in all_products:
         menu_item = {
             'product': None,
@@ -50,7 +49,6 @@ def menu(request):
                               'size': 'Large'})
             menu_item['product'] = product
             menu_item['sizes'] = sizes
-            print('side item test: ', menu_item)
             side_list.append(menu_item)
 
         if product.product_type == 'DESSERT':
@@ -81,7 +79,6 @@ def menu(request):
                               'size': 'Large'})
             menu_item['product'] = product
             menu_item['sizes'] = sizes
-            print('side item test: ', menu_item)
             drink_list.append(menu_item)
 
     context = {

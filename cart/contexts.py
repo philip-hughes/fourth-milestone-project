@@ -14,13 +14,11 @@ def cart_contents(request):
     cart_items = []
     grand_total = 0
     cart = request.session.get('cart', [])
-    print('Context cart: ', cart)
 
     for item in cart:
         product_id = item['product_id']
         product = get_object_or_404(Product, pk=product_id)
         product_type = product.product_type
-        print('COntext item price: ', item['item_price'])
         item_price = float(item['item_price'])
         quantity = int(item['quantity'])
         size = item['size']

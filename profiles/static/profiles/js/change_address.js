@@ -18,7 +18,6 @@ $(document).ready(function () {
   );
 
   google.maps.event.addListener(autocomplete, "place_changed", function () {
-    console.log("setting lat long");
     var near_place = autocomplete.getPlace();
     try {
       document.getElementById('id_profile-latitude').value = near_place.geometry.location.lat();
@@ -43,7 +42,6 @@ $(document).ready(function () {
   $("#apply-changes-button").click(function (e) {
     e.preventDefault();
     if ($("#id_profile-latitude").val() != ""){    
-        console.log("sumbit form")
         $("#profile-form").submit();
     }
     else {

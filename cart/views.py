@@ -63,4 +63,3 @@ def adjust_cart(request, product_id):
             cart[item_index]['quantity'] -= 1
             request.session['cart'] = cart
         return redirect(reverse('view_cart'))
-

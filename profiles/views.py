@@ -9,15 +9,12 @@ from .forms import UserProfileForm
 
 def profile(request):
     user = request.user
-    print('user details: ', user.email)
     profile = UserProfile.objects.get(user=user)
-    print('user profile: ', profile.street_address1)
 
     if request.method == 'POST':
         profile_form = UserProfileForm(
             request.POST, instance=profile, prefix="profile")
         if profile_form.is_valid():
-            print('form is valid')
             profile_form = profile_form.save()
             user = User.objects.get(email=user.email)
             user.first_name = request.POST['first_name']
@@ -25,7 +22,6 @@ def profile(request):
             user.save()
             user = User.objects.get(email=user.email)
             profile = UserProfile.objects.get(user=user)
-            print('saved user: ', user)
             profile_form = UserProfileForm(prefix="profile", initial={
                 'user': profile.user,
                 'street_address1': profile.street_address1,

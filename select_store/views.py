@@ -6,14 +6,11 @@ gmaps = googlemaps.Client(key='AIzaSyA7Y1Jc7Syxl2pf04Y9wIy-HbV26wVkpzo')
 
 
 def select_store(request):
-    print('link working: ')
     if request.GET:
-        print('store name working: ', request.GET['store'])
         store_id = request.GET['store']
         delivery = request.GET['delivery']
         request.session['delivery'] = delivery
         store = request.session['store'] = store_id
-        print('selected store: ', store)
         return redirect('menu')
 
     if request.POST:
@@ -26,7 +23,6 @@ def select_store(request):
                 "street_address2": customer_address[1],
                 "county": customer_address[2],
             }
-            print('customer address: ', customer_address)
             request.session['customer_address'] = customer_address
             customer_address_coordinates = (latitude, longitude)
             all_stores = Store.objects.all()
