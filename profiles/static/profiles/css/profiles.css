@@ -32,3 +32,11 @@ h2 {
     background-color: #158ace;
 
 }    
+
+#profile-wrapper form {
+    padding-bottom: 20px;
+}
+
+.form-wrapper h2 {
+    padding-top: 5px;
+}
